@@ -1,0 +1,23 @@
+{
+  "name": "codingkidshk",
+  "version": "1.0.0",
+  "description": "CodingKids 2018 website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/terrysmyth/codingkidshk.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/terrysmyth/codingkidshk/issues"
+  },
+  "homepage": "https://github.com/terrysmyth/codingkidshk#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "hbs": "^4.0.0"
+  }
+}

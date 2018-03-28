@@ -1,0 +1,49 @@
+<div class="adminWrap">
+    <div class="topSection container-fluid">
+        <h2>Dashboard</h2>
+    </div>
+    <!-- MAIN SECTION -->
+    <main class="container-fluid">
+        <div class="row">
+            <div class="boxWrap col-12 col-md-6">
+                <div class="dashbox d1">
+                    <h3>General Info</h3>
+                    <p class="edit" ng-click="edit = !edit" ng-init="!edit" ng-show="!edit">edit</p>
+                    <p class="edit" ng-click="edit = !edit" ng-init="!edit" ng-show="edit">save</p>
+                    <label>
+                        <em>Main Title:</em> 
+                        <span ng-show="!edit">{{general.header}}</span>
+                        <input type="text" name="" ng-model="general.header" placeholder="general.header" ng-show="edit">
+                    </label>
+                    <label>
+                        <em>Hero Title: </em>
+                        <span ng-show="!edit">{{general.hero.header}}</span>
+                        <input type="text" name="" ng-model="general.hero.header" placeholder="general.hero.header" ng-show="edit">
+                    </label>
+                    <label>
+                        <em>Hero Sub-Title: </em>
+                        <span ng-show="!edit">{{general.hero.subheader}}</span>
+                        <input type="text" name="" ng-model="general.hero.subheader" placeholder="general.hero.subheader" ng-show="edit">
+                    </label>
+                </div>
+            </div>
+            <div class="boxWrap col-12 col-md-6">
+                <div class="dashbox d2">
+                    <h3>Meta Data</h3>
+                    <p class="edit" ng-click="edit1 = !edit1" ng-init="!edit1" ng-show="!edit1">edit</p>
+                    <p class="edit" ng-click="edit1 = !edit1" ng-init="!edit1" ng-show="edit1">save</p>
+                    <label>
+                        <em>Title:</em> 
+                        <span ng-show="!edit1">{{meta.title}}</span>
+                        <input type="text" name="" ng-model="meta.title" placeholder="meta.title" ng-show="edit1">
+                    </label>
+                    <label>
+                        <em>Description: </em>
+                        <span ng-show="!edit1">{{meta.description}}</span>
+                        <input type="text" name="" ng-model="meta.description" placeholder="meta.description" ng-show="edit1">
+                    </label>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" ng-controller="mainCtrl">
+
+<head>
+    <meta charset="utf-8">
+    <title>{{meta.title}}</title>
+    <meta name="description" content="{{meta.description}}" />
+    <!-- GOOGLE FONTS/ICONS -->
+    <link href="https://fonts.googleapis.com/css?family=Abel|Anton" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <title>Welcome to CodingKids</title>
+</head>
+
+<body>
+    <navbar></navbar>
+    <div class="myView" ng-view autoscroll="true"></div>
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>Created By TMRW DIGITAL | Copyright {{ getCurrentYear }}</p>
+        </div>
+    </footer>
+    <!-- FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase-firestore.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyB8H94gTde3V1t6uI9LaqCOBI5M6DLAsQY",
+        authDomain: "codingkidshk.firebaseapp.com",
+        databaseURL: "https://codingkidshk.firebaseio.com",
+        projectId: "codingkidshk",
+        storageBucket: "",
+        messagingSenderId: "641477682774"
+    };
+    firebase.initializeApp(config);
+    var db = firebase.firestore();
+
+    // Get a reference to the database service
+    var database = firebase.database();
+    </script>
+    <!-- JQUERY BOOTSTRAP -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- ANGULAR -->
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/angular-route.min.js"></script>
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/mainCtrl.js"></script>
+    <script type="text/javascript" src="js/start.js"></script>
+</body>
+
+</html>

@@ -1,3 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" ng-controller="mainCtrl">
+<head>
+	<meta charset="utf-8">
+	<!-- GOOGLE FONTS/ICONS -->
+	<link href="https://fonts.googleapis.com/css?family=Abel|Anton" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<title>Welcome to CodingKids</title>
+</head>
+<body>
+
+<div class="myView" ng-view autoscroll="true"></div>
+
 <!-- FOOTER -->
 <footer>
     <p>Created By TMRW DIGITAL | Copyright {{ getCurrentYear }}</p>

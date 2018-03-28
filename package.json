@@ -18,7 +18,12 @@
   },
   "homepage": "https://github.com/terrysmyth/codingkidshk#readme",
   "dependencies": {
+    "angular": "^1.6.9",
+    "angular-route": "^1.6.9",
+    "angularfire": "^2.3.0",
     "express": "^4.14.0",
+    "firebase": "^4.11.0",
+    "firebase-admin": "^5.11.0",
     "hbs": "^4.0.0"
   }
 }

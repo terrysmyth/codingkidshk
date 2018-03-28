@@ -1,17 +1,59 @@
-<!-- HERO -->
-<div class="hero">
-	<h1>{{general.hero.header}}</h1>
-	<h3>{{general.hero.subheader}}</h3>
-	<a href="#!/">
-		<button class="btn1">
-			Classes
-		</button> 
-	</a>
+<div class="homeWrap" ng-controller="homeCtrl">
+    <!-- HERO -->
+    <div class="hero">
+        <h1>{{general.hero.header}}</h1>
+        <h3>{{general.hero.subheader}}</h3>
+        <a href="#!/">
+            <button class="btn1">
+                Classes
+            </button>
+        </a>
+    </div>
+    <div class="location">
+        Location: {{general.location}}
+    </div>
+    <!-- BODY -->
+    <div class="sectionWrap s1">
+        <div class="sectionInner container">
+            <div class="row">
+                <div ng-repeat="section in sections" class="col-12 col-md-6 col-xl-4">
+                    <div class="innerSection">
+                        <h3>{{section.header}}</h3>
+                        <h4>{{section.subheader}}</h4>
+                        <div class="innerImg" style="background-image: url({{section.img}});"></div>
+                        <a href="{{section.link}}">Check it out!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sectionWrap s2">
+    	<div ng-repeat="section in major" class="majorSection">
+    		<div class="majorImg" style="background-image:url({{section.img}})"></div>
+    		<div class="majorInfo">
+    			<h3>{{section.header}}</h3>
+    			<h5>{{section.subheader}}</h5>
+    			<p>{{section.body}}</p>
+    			<a href="{{section.link}}">More Info</a>
+    		</div>
+    	</div>
+    </div>
+    <!-- CONTACT US -->
+    <div class="contactWrap columnCenter">
+        <form class="contactForm columnCenter">
+            <h3>Contact Us</h3>
+            <input type="text" name="" placeholder="Name:" required>
+            <input type="email" name="" placeholder="Email:" required>
+            <textarea placeholder="Enquiry:" required></textarea>
+            <input type="submit" name="" value="Submit">
+        </form>
+    </div>
+    <!-- SIGN UP FOR MAILCHIMP -->
+    <div class="mailWrap">
+    	<div class="mailWrapInner container">
+    		<h3>Sign Up for our Newsletter</h3>
 
+    	</div>
+    </div>
 </div>
 
-
-<!-- BODY -->
-<div class="homeWrap">
-	
-</div>

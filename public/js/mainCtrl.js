@@ -14,7 +14,8 @@
         var getGen = firebase.database().ref('meta');
         getGen = $firebaseObject(getGen);
         getGen.$bindTo($scope, "meta");
+        
 
-
+        
 
      })

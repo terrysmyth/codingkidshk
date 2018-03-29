@@ -39,9 +39,9 @@ a:hover {
 }
 
 h3 {
-	font-size: 23px;
-	color:#F46E30;
-	font-family: 'Anton', sans-serif;
+    font-size: 23px;
+    color: #F46E30;
+    font-family: 'Anton', sans-serif;
 }
 
 .columnCenter {
@@ -70,6 +70,7 @@ h3 {
 
 
 
+
 /* FOOTER */
 
 footer {
@@ -78,6 +79,7 @@ footer {
     min-height: 300px;
     padding: 40px 20px;
 }
+
 
 
 
@@ -136,6 +138,7 @@ nav a:hover img {
     right: 10px;
     display: none;
     z-index: 10;
+    cursor: pointer;
 }
 
 .menu .line {
@@ -143,7 +146,25 @@ nav a:hover img {
     height: 5px;
     margin: 6px;
     background-color: #fff;
+    transition-duration: 0.2s;
 }
+
+.menu:hover .line {
+    background-color: #F46E30;
+}
+
+.menu.active .line1 {
+    transform: translateX(-10px);
+}
+
+.menu.active .line2 {
+    transform: translateX(5px);
+}
+
+.menu.active .line3 {
+    transform: translateX(-5px);
+}
+
 
 
 
@@ -213,6 +234,7 @@ nav a:hover img {
 
 
 
+
 /* HOME PAGE */
 
 .location {
@@ -243,6 +265,7 @@ nav a:hover img {
 .innerSection h4 {
     padding: 0px 10px 20px;
     margin: 0;
+    font-size: 18px;
 }
 
 
@@ -261,33 +284,34 @@ nav a:hover img {
 }
 
 .majorSection {
-	display: flex;
-	-webkit-display: flex;
-	flex-wrap: wrap;
-	-webkit-flex-wrap: wrap;
+    display: flex;
+    -webkit-display: flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
 }
 
 .majorSection:first-child {
-	flex-direction: row-reverse;
+    flex-direction: row-reverse;
 }
 
 .majorImg {
-	height: 300px;
-	min-width: 230px;
-	flex-grow: 1;
-	width: 50%;
-	background-size: cover;
-	background-position: center;
+    height: 300px;
+    min-width: 230px;
+    flex-grow: 1;
+    width: 50%;
+    background-size: cover;
+    background-position: center;
 }
 
 .majorInfo {
-	min-width: 200px;
-	flex-grow: 1;
-	width: 50%;
-	padding: 20px 40px;
-	height: 300px;
-	background-color: #fff;
+    min-width: 200px;
+    flex-grow: 1;
+    width: 50%;
+    padding: 20px 40px;
+    height: 300px;
+    background-color: #fff;
 }
+
 
 
 /* CONTACT FORM*/
@@ -311,12 +335,13 @@ nav a:hover img {
     margin-bottom: 10px;
 }
 
-.contactForm input, textarea {
+.contactForm input,
+textarea {
     width: 100%;
     padding: 10px;
     margin: 10px;
     border: 0;
-    border-bottom: 1px rgba(0,0,0,0.3) solid;
+    border-bottom: 1px rgba(0, 0, 0, 0.3) solid;
     max-width: 400px;
 }
 
@@ -344,8 +369,14 @@ textarea:focus {
     width: 100%;
     color: #fff;
     margin-top: 10px;
-    font-size: 28px;
+    font-size: 22px;
     border: 0;
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+
+.contactForm input[type="submit"]:hover {
+    background-color: green;
 }
 
 .mailWrap {
@@ -369,8 +400,44 @@ textarea:focus {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
+.mailWrap h3 {
+    position: relative;
+    z-index: 10;
+    color: #fff;
+}
 
 
+/*Mailchimp*/
+
+#mc_embed_signup {
+    background: transparent;
+    clear: left;
+    font-family: 'Abel', sans-serif;
+    position: relative;
+    z-index: 10;
+    color: #fff;
+}
+
+#mc_embed_signup h2 {
+    font-family: 'Anton', sans-serif;
+    font-weight: bold;
+    padding: 0;
+    margin: 15px 0;
+    font-size: 1.4em;
+    color: #fff;
+    font-size: 22px;
+}
+
+
+/* THANK YOU */
+
+.thankYou {
+    margin: 0 auto;
+    width: 300px;
+    text-align: justify;
+    border-top: 4px #F46E30 solid;
+    padding-top: 40px;
+}
 
 
 
@@ -459,6 +526,7 @@ textarea:focus {
 
 
 
+
 /* LOGIN */
 
 .loginWrap {
@@ -518,10 +586,9 @@ textarea:focus {
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 550px) {
 
-	.majorImg {
-		height: 200px;
-	}
-
+    .majorImg {
+        height: 200px;
+    }
 }

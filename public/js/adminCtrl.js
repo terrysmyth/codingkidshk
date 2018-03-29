@@ -3,7 +3,8 @@
  angular.module("myApp")
      .controller('adminCtrl', function($rootScope, $scope, $location, $firebaseObject) {
 
-
+     	// Set Page
+     	$rootScope.pageTitle = "Admin Page";
 
      	// Get Sections
         var getGen = firebase.database().ref('sections');

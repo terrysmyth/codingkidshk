@@ -2,13 +2,12 @@
     <a href="/">
 		<img src="/images/favicons/apple-icon-152x152.png" alt="Codingkids HK Logo">
 	</a>
-    <a href="/" ng-click="nav = !nav" >HOME</a>
-    <a href="/" ng-click="nav = !nav" >CLASSES</a>
-    <a href="/" ng-click="nav = !nav" >ONLINE EDU</a>
-    <a href="/" ng-click="nav = !nav" >PROFILE</a>
-    <a href="#!/login" ng-click="nav = !nav" >LOGIN</a>
-    <a href="#!/login" ng-click="nav = !nav" >LOGOUT</a>
-    <a href="#!/admin" ng-click="nav = !nav" >ADMIN</a>
+    <a href="#!/home" ng-click="nav = !nav" >HOME</a>
+    <a href="#!/home" ng-click="nav = !nav" >CLASSES</a>
+    <a href="#!/home" ng-click="nav = !nav" >ONLINE EDU</a>
+    <a href="#!/profile" ng-click="nav = !nav" ng-if="user" >PROFILE</a>
+    <a href="#!/login" ng-click="nav = !nav" ng-if="!user">LOGIN</a>
+    <a href="#!/admin" ng-click="nav = !nav" ng-if="user && profile.role == 'admin'">ADMIN</a>
 </nav>
 <div class="menu" ng-click="nav = !nav" ng-class="{active: nav}">
     <div class="line line1"></div>

@@ -3,7 +3,7 @@
         <h2>Dashboard</h2>
     </div>
     <!-- MAIN SECTION -->
-    <main class="container-fluid">
+    <main class="container-fluid" ng-if="profile.role == 'admin'">
         <div class="row">
             <!-- GENERAL INFO -->
             <div class="boxWrap col-12 col-md-6">
@@ -111,6 +111,28 @@
                             <input type="text" name="" ng-model="section.img" placeholder="section.img" ng-show="edit3">
                         </label>
                     </div>
+                </div>
+            </div>
+            <!-- Student List -->
+            <div class="boxWrap col-12 col-md-6">
+                <div class="dashbox d4">
+                    <h3>Student</h3>
+                    <div class="studentList">
+                        <div class="student" ng-repeat="student in students">
+                            <p>{{student.username}}</p>
+                            <label class="switch switch_type1" role="switch">
+                                <input type="checkbox" class="switch__toggle" checked ng-model="student.student">
+                                <span class="switch__label"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Quiz Creator -->
+            <div class="boxWrap col-12 col-md-6">
+                <div class="dashbox d4">
+                    <h3>Create a quiz</h3>
+                    <quiz></quiz>
                 </div>
             </div>
         </div>

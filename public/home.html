@@ -8,6 +8,8 @@
                 Classes
             </button>
         </a>
+        <p ng-if="user">Welcome, {{profile.username || user.displayName}}<br>You are logged in!</p>
+        <div ng-if="user" class="heroProfile" ng-show="user.photoURL" style="background-image:url({{user.photoURL}})"></div>
     </div>
     <div class="location">
         Location: {{general.location}}

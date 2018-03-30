@@ -9,10 +9,30 @@ app.directive('navbar', function() {
     }
 });
 
+app.directive('quiz', function() {
+    return {
+        restrict: 'E',
+        templateUrl: 'directives/quiz.html'
+    }
+});
+
+app.directive('showquiz', function() {
+    return {
+        restrict: 'E',
+        templateUrl: 'directives/showquiz.html'
+    }
+});
+
+
+
+
 app.config(function($routeProvider) {
     $routeProvider
         .when("/admin", {
             templateUrl: "admin.html",
+        })
+        .when("/profile", {
+            templateUrl: "profile.html",
         })
         .when("/thank-you", {
             templateUrl: "thank-you.html",

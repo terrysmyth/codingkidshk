@@ -1,0 +1,39 @@
+<div class="showQuizWrap" ng-init="currentQuestion = -1">
+    <div class="startingWrap" ng-show="currentQuestion == -1">
+        <h3>Welcome to the quiz!</h3>
+        <p>Click 'Start' to get started. You have no time limit and you can take this quiz as much as you want. Goodluck!</p>
+        <button ng-click="currentQuestion = 0">Start</button>
+    </div>
+    <div ng-repeat="question in takeQuiz.questions" class="questionWrapper" ng-show="$parent.currentQuestion == $index">
+        <h4>Q{{$index + 1}}: {{question.q}}</h4>
+        <!-- Text -->
+        <input type="text" name="" ng-if="question.type == 'text'" ng-model="$parent.answers[$index]" placeholder="answer">
+        <!-- Multi -->
+        <div ng-if="question.type == 'multi'" class="multiQ">
+            <label ng-class="{checked: $parent.answers[$index] == 'a'}">
+            	{{question.multi.a1}}
+                <input type="radio" name="q{{$index}}" value="a" ng-model="$parent.answers[$index]">
+            </label>
+             <label ng-class="{checked: $parent.answers[$index] == 'b'}">
+            	{{question.multi.a2}}
+                <input type="radio" name="q{{$index}}" value="b" ng-model="$parent.answers[$index]">
+            </label>
+             <label ng-class="{checked: $parent.answers[$index] == 'c'}">
+            	{{question.multi.a3}}
+                <input type="radio" name="q{{$index}}" value="c" ng-model="$parent.answers[$index]">
+            </label>
+             <label ng-class="{checked: $parent.answers[$index] == 'd'}">
+            	{{question.multi.a4}}
+                <input type="radio" name="q{{$index}}" value="d" ng-model="$parent.answers[$index]">
+            </label>
+        </div>
+        <button class="prev" ng-hide="$index == 0" ng-click="$parent.currentQuestion = $index - 1">Previous</button>
+        <button class="next" ng-show="$parent.answers[$index] && !$last" ng-click="$parent.currentQuestion = $index + 1">Next</button>
+        <!-- submit button -->
+        <button 
+        class="submit" 
+        ng-show="$last && $parent.answers[$index]" 
+        ng-click="getAnswers(takeQuiz.questions, $parent.answers, takeQuiz,id); $parent.profilePage = 'p5'; $parent.answers = []; $parent.currentQuestion = -1">
+    	Submit Quiz</button>
+    </div>
+</div>

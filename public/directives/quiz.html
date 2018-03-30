@@ -1,0 +1,45 @@
+<div class="quizCreateWrap">
+    <input type="text" name="" ng-model="quiz.name" placeholder="Quiz Name">
+    <select ng-model="quiz.type">
+        <option value="HTML">HTML</option>
+        <option value="CSS">CSS</option>
+        <option value="JS">JS</option>
+        <option value="JQ">JQ</option>
+        <option value="Bootstrap">Bootstrap</option>
+    </select>
+    <select ng-model="quiz.difficulty">
+        <option value="beginner">Beginner</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="expert">Expert</option>
+    </select>
+    <label ng-init="addText = false; addMutli = false">Add Question:</label>
+    <button class="questionType" ng-click="addText = false; addMutli = true">Multiple-Choice</button>
+    <button class="questionType" ng-click="addText = true; addMutli = false">Text Question</button>
+    <label ng-show="addMutli">
+        Multiple Choice
+        <!-- question -->
+        <input type="text" name="" ng-model="question.q" placeholder="Question">
+        <!-- Answers -->
+        <input type="text" name="" ng-model="question.multi.a1" placeholder="Answer 1">
+        <input type="text" name="" ng-model="question.multi.a2" placeholder="Answer 2">
+        <input type="text" name="" ng-model="question.multi.a3" placeholder="Answer 3">
+        <input type="text" name="" ng-model="question.multi.a4" placeholder="Answer 4">
+        <!-- Correct -->
+        <input type="text" name="" ng-model="question.a" placeholder="Correct Answer">
+        <button class="addQuestion" ng-click="submitQuestion(question, question.type = 'multi'); question = null">Add Question:</button>
+    </label>
+    <label ng-show="addText">
+        Text Question
+        <input type="text" name="" ng-model="question.q">
+        <input type="text" name="" ng-model="question.a" placeholder="Correct Answer">
+        <button class="addQuestion" ng-click="submitQuestion(question, question.type = 'text'); question = null">Add Question:</button>
+    </label>
+    <div ng-show="questions" class="questionsWrapper">
+    	Questions:
+    	<div class="question" ng-repeat="item in questions track by $index">
+    		<p>Q{{$index + 1}}</p>
+    		<p>{{item.q}}</p>
+    	</div>
+    </div>
+    <button class="submit" ng-click="submitQuiz(quiz, questions); questions = null; quiz = null">Submit Quiz</button>
+</div>

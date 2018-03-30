@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/terrysmyth/codingkidshk#readme",
   "dependencies": {
+    "@uirouter/angularjs": "^1.0.7",
     "angular": "^1.6.9",
     "angular-route": "^1.6.9",
     "angularfire": "^2.3.0",

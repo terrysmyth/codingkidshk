@@ -1,32 +1,41 @@
  "use strict";
 
  angular.module("myApp")
-     .controller('mainCtrl', function($rootScope, $scope, $location, $firebaseObject) {
-        
+     .controller('mainCtrl', function($rootScope, $scope, $location, $firebaseObject, $window) {
+
          // Current User *********************************************************************
          var user = firebase.auth().currentUser;
-         $rootScope.user = user;
-         console.log("user name:" + user)
 
-
-
-         // GET USER
+         // ********** GET USER *******
          firebase.auth().onAuthStateChanged(function(user) {
              if (user) {
-                 console.log('user signed in');
+                 // User is signed in.
+                 $rootScope.user = user;
+                 console.log(user)
+                 // GET PROFILE
+                 var getProfile = firebase.database().ref('users/' + user.uid);
+                 getProfile = $firebaseObject(getProfile);
+                 getProfile.$bindTo($rootScope, "profile");
+                 console.log(getProfile)
+                 $window.location.href = '/#!/home'
              } else {
-                 console.log('There is no user');
+                 // No user is signed in.
+                 $rootScope.user = null;
+                 console.log("No user...");
              }
          });
 
-
          // LOG OUT
-         firebase.auth().signOut().then(function() {
-             console.log('Logged out');
+         $scope.logout = function() {
+             firebase.auth().signOut().then(function() {
+                 console.log('Logged out');
 
-         }).catch(function(error) {
-             console.log('Couldnt log out!');
-         });
+             }).catch(function(error) {
+                 console.log('Couldnt log out!');
+             });
+         };
+
+
 
          // GET DATA **************************************************************************
 

@@ -1,0 +1,120 @@
+<div class="profileWrap" ng-controller="profileCtrl">
+    <div class="hero small"></div>
+    <div class="notDone container" ng-if="!profile">
+        <div class="contactForm profileForm columnCenter">
+            <h2>Welcome {{user.displayName}}, to CodingKids!</h2>
+            <h4>To register as a student please fill in the details below and press 'Submit'.</h4>
+            <input type="text" name="" placeholder="Name:" required ng-model="studentInfo.name">
+            <input type="email" name="" placeholder="Email:" required ng-model="studentInfo.email">
+            <label>Birthday:</label>
+            <input type="date" name="" ng-model="studentInfo.date">
+            <input type="text" name="" placeholder="Parent Name:" required ng-model="studentInfo.parent.name">
+            <input type="email" name="" placeholder="Parent Email:" required ng-model="studentInfo.parent.email">
+            <input type="number" name="" placeholder="Parent Phone:" required ng-model="studentInfo.parent.phone">
+            <button ng-click="createStudent(studentInfo, user.uid)" class="submitBtn" ng-show="studentInfo.name && studentInfo.email && studentInfo.date && studentInfo.parent.name && studentInfo.parent.email && studentInfo.parent.phone">Submit</button>
+        </div>
+    </div>
+    <div class="profilePage container-fluid" ng-if="profile">
+        <div class="row profileWrapper">
+            <div class="profileNav col-12 col-md-3" ng-init="profilePage = 'p1'">
+                <div class="profilePimg" style="background-image: url({{user.photoURL}});"></div>
+                <p ng-click="profilePage = 'p1'">Profile</p>
+                <p ng-click="profilePage = 'p2'; currentQuestion = -1; answers = []">Quizes</p>
+                <p ng-click="profilePage = 'p3'">Free Videos</p>
+                <p ng-click="logout()">Logout</p>
+            </div>
+            <div class="col-1"></div>
+            <!-- PROFILE -->
+            <div ng-show="profilePage == 'p1'" class="profileBox p1 col-12 col-md-7">
+                <h3>{{user.displayName}} <span ng-show="profile.points">points:{{profile.points}}{{points}}</span></h3>
+                <div class="profileUserInfo">
+                    <div class="profileUserInner" ng-init="edit = false">
+                        <h4>YOU:</h4>
+                        <p ng-click="edit = !edit" class="edit" ng-show="!edit">edit</p>
+                        <p ng-click="edit = !edit" class="edit" ng-show="edit">save</p>
+                        <label>
+                            Name: <span ng-show="!edit">{{profile.username}}</span>
+                            <input ng-show="edit" type="text" ng-model="profile.username" name="">
+                        </label>
+                        <label>
+                            Email: <span ng-show="!edit">{{profile.email}}</span>
+                            <input ng-show="edit" type="email" ng-model="profile.email" name="">
+                        </label>
+                    </div>
+                    <div class="profileUserInner" ng-init="edit1 = false">
+                        <h4>PARENT:</h4>
+                        <p ng-click="edit1 = !edit1" class="edit" ng-show="!edit1">edit</p>
+                        <p ng-click="edit1 = !edit1" class="edit" ng-show="edit1">save</p>
+                        <label>
+                            Name: <span ng-show="!edit1">{{profile.parent.name}}</span>
+                            <input ng-show="edit1" type="text" ng-model="profile.parent.name" name="">
+                        </label>
+                        <label>
+                            Email: <span ng-show="!edit1">{{profile.parent.email}}</span>
+                            <input ng-show="edit1" type="email" ng-model="profile.parent.email" name="">
+                        </label>
+                        <label>
+                            Phone: <span ng-show="!edit1">{{profile.parent.phone}}</span>
+                            <input ng-show="edit1" type="number" ng-model="profile.parent.phone" name="">
+                        </label>
+                    </div>
+                </div>
+                <div class="quizResultsWrapper" ng-show="profile.quizes">
+                    <h4>Quiz Results</h4>
+                    <div ng-repeat="quiz in profile.quizes" class="quizResultLine">
+                        <p>{{quiz.name}}</p>
+                        <p class="middle">{{quiz.type}}</p>
+                        <p class="middle">{{quiz.difficulty}}</p>
+                        <p>{{quiz.percent.percent}}%</p>
+                        <p ng-show="quiz.percent.percent > 90" ng-class="{'passed': quiz.percent.percent > 90}" class="result">PASSED</p>
+                        <p ng-show="quiz.percent.percent <= 90" class="result">INCOMPLETE</p>
+                    </div>
+                </div>
+            </div>
+            <!-- AVAILABLE QUIZES -->
+            <div ng-show="profilePage == 'p2'" class="profileBox p2 col-12 col-md-7">
+                <h3>Quizes:</h3>
+                <div class="profileQuizWrap" ng-show="profile.student" ng-init="takeQuiz = null">
+                    <div class="quizWrap" ng-repeat="quiz in quizes" ng-click="$parent.takeQuiz = quiz; $parent.profilePage = 'p4'">
+                        <p class="quizType {{quiz.type}}">{{quiz.type}}</p>
+                        <p class="quizDif">{{quiz.difficulty}}</p>
+                        <h3>{{quiz.name}}</h3>
+                    </div>
+                </div>
+                <p ng-show="!profile.student">Sorry you havent been verified as a student yet. This material is not available until then. Thanks.</p>
+
+            </div>
+            <!-- Videos -->
+            <div ng-show="profilePage == 'p3'" class="profileBox p2 col-12 col-md-7">
+                <h3>Videos:</h3>
+                <div class="" ng-show="profile.student"></div>
+                <p ng-show="!profile.student">Sorry you havent been verified as a student yet. This material is not available until then. Thanks.</p>
+                <p>Coming Soon...</p>
+            </div>
+
+            <!-- QUIZ -->
+            <div ng-show="profilePage == 'p4'" class="profileBox p2 col-12 col-md-7">
+                <h3>Quiz: {{takeQuiz.name}}</h3>
+                <showquiz></showquiz>
+            </div>
+
+            <!-- ANSWERS -->
+            <div ng-show="profilePage == 'p5'" class="profileBox p5 col-12 col-md-7">
+                <h3>Thank you for finishing the {{typeQuiz.type}} quiz.</h3>
+                <h4>Below are your results.</h4>
+                <h5 class="percent" ng-class="{'pass': result.percent > 90}">{{result.percent}}%</h5>
+                <!-- Pass -->
+                <div ng-show="result.percent > 90" class="resultInner">
+                    <h6>Congratulations, you passed!</h6>
+                    <p>We have added this passed quiz to your progress. Keep it up!<br><br>When you have completed all the quizes in each section, we would recommend you take the W3C certificates. Check the link below:</p>
+                    <a href="https://www.w3schools.com/cert/default.asp">W3C Certifications</a>
+                </div>
+                <div ng-show="result.percent <= 90" class="resultInner">
+                    <h6>Too bad this time!</h6>
+                    <p>Why not take a look at some material at W3C to polish up your {{typeQuiz.type}} knowledge? Then take the quiz again :)<br><br>Learning is a journey, failures are our best lessons!</p>
+                    <a href="https://www.w3schools.com/">W3C Schools Online</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

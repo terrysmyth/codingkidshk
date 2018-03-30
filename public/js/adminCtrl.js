@@ -56,7 +56,8 @@
                  type: quiz.type,
                  difficulty: quiz.difficulty,
                  questions: questions,
-                 id: newPostKey
+                 id: newPostKey,
+                 link: quiz.link
              });
 
              console.log(quiz)

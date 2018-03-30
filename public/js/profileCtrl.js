@@ -48,6 +48,11 @@
 
          };
 
+         // RESET QUIZ ANSWERS 
+         $scope.reset = function() {
+             $scope.result = { percent: 0,a: []};
+         }
+
          $scope.answers = [];
          $scope.result = {
              percent: 0,
@@ -58,6 +63,12 @@
          var getQuizes = firebase.database().ref('quizes');
          getQuizes = $firebaseObject(getQuizes);
          getQuizes.$bindTo($scope, "quizes");
+
+         // GET FINISHED QUIZES 
+         var getFinished = firebase.database().ref('users/' + user.uid + 'quizes');
+         getFinished = $firebaseObject(getFinished);
+         getFinished.$bindTo($scope, "finished");
+
 
          $scope.getAnswers = function(questions, answers, quizID) {
 
@@ -74,13 +85,14 @@
                      a = false;
                  }
                  totalQuestions += 1;
-                 $scope.result.a.push({ q: questions[i].a, a: a });
+                 $scope.result.a.push({ q: questions[i].q, a: a });
              }
 
              var precentCorrect = Math.round((totalCorrect / totalQuestions) * 100);
              $scope.result.percent = precentCorrect;
 
              $scope.postAnswers(quizID, $scope.result);
+
          }
 
          $scope.postAnswers = function(quizID, result) {
@@ -93,18 +105,19 @@
                  id: quizID.id
              });
 
-             if (result.percent > 90) {
+             if (result.percent > 85) {
 
                  // GET QUIZES 
                  var getPoints = firebase.database().ref('users/' + user.uid + '/points').once('value').then(function(snapshot) {
                      var userPoints = snapshot.val();
-                     console.log(userPoints);
                      firebase.database().ref('users/' + user.uid + '/points/').set(userPoints + 20);
                  });
 
              }
 
          }
+
+
 
 
 

@@ -3,6 +3,9 @@
  angular.module("myApp")
      .controller('mainCtrl', function($rootScope, $scope, $location, $firebaseObject, $window) {
 
+        // DATE
+        $scope.date = new Date();
+
          // Current User *********************************************************************
          var user = firebase.auth().currentUser;
 

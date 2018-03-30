@@ -1,5 +1,6 @@
 <div class="quizCreateWrap">
     <input type="text" name="" ng-model="quiz.name" placeholder="Quiz Name">
+    <input type="text" name="" ng-model="quiz.link" placeholder="Help Link">
     <select ng-model="quiz.type">
         <option value="HTML">HTML</option>
         <option value="CSS">CSS</option>
@@ -41,5 +42,5 @@
     		<p>{{item.q}}</p>
     	</div>
     </div>
-    <button class="submit" ng-click="submitQuiz(quiz, questions); questions = null; quiz = null">Submit Quiz</button>
+    <button ng-show="quiz.name && quiz.link && quiz.type && quiz.difficulty && questions" class="submit" ng-click="submitQuiz(quiz, questions); questions = null; quiz = null">Submit Quiz</button>
 </div>

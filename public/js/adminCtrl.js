@@ -67,6 +67,22 @@
              $scope.quiz = null;
          }
 
+         // CREATE USEFUL LINK *************************************************************
+
+         $scope.createLink = function(useful) {
+            // Get a key for a new Post.
+             var newPostKey = firebase.database().ref().child('useful').push().key;
+
+             firebase.database().ref('useful/' + newPostKey).set({
+                 name: useful.name,
+                 type: useful.type,
+                 img: useful.img,
+                 id: newPostKey,
+                 link: useful.link
+             });
+
+         }
+
 
 
      })

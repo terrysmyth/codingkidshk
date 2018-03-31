@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body ng-bind-html="insertHTML">
+    <div class="viewWindow" id="viewWindow"></div>
+    <style type="text/css" id="viewCSS"></style>
+    <div class="languageWrap">
+        <button onclick="getHTML()">Load HTML</button>
+        <button onclick="getCSS()">Load CSS</button>
+        <textarea class="writingBox htmlWrap" id="textHTML" placeholder="// Write your HTML here!"></textarea>
+        <textarea class="writingBox cssWrap" id="textCSS" placeholder="/* Write your CSS here! */"></textarea>
+    </div>
+</body>
+<style type="text/css">
+body {
+    margin: 0;
+}
+
+.viewWindow {
+    border: 1px grey solid;
+    height: 300px;
+}
+
+.languageWrap {
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+}
+
+.writingBox {
+    background-color: #2f2929;
+    color: #00c300;
+    margin: 0;
+    height: 200px;
+    min-height: 200px;
+    max-height: 200px;
+    border: 1px #fff solid;
+    flex-grow: 1;
+    min-width: 40%;
+    padding: 5px;
+}
+
+.htmlWrap {}
+
+.cssWrap {}
+
+button {
+    flex-grow: 1;
+    padding: 10px;
+    margin: 0;
+    width: 49%;
+    display: block;
+    background-color: #F46E30;
+    color: #fff;
+    border: 1px #fff solid;
+}
+
+
+</style>
+<script type="text/javascript">
+function getHTML() {
+    var getData = document.getElementById('textHTML').value;
+    var getWindow = document.getElementById('viewWindow');
+    getWindow.innerHTML = getData;
+    console.log(getData)
+
+}
+
+function getCSS() {
+    var getData = document.getElementById('textCSS').value;
+    var getWindow = document.getElementById('viewCSS');
+    getWindow.innerHTML = getData;
+}
+</script>
+
+</html>

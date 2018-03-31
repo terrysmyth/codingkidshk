@@ -1,7 +1,7 @@
  "use strict";
 
  angular.module("myApp")
-     .controller('profileCtrl', function($rootScope, $scope, $location, $firebaseObject, $window) {
+     .controller('profileCtrl', function($rootScope, $scope, $location, $firebaseObject, $window, $sce) {
 
 
          // Current User *********************************************************************
@@ -50,7 +50,7 @@
 
          // RESET QUIZ ANSWERS 
          $scope.reset = function() {
-             $scope.result = { percent: 0,a: []};
+             $scope.result = { percent: 0, a: [] };
          }
 
          $scope.answers = [];
@@ -118,6 +118,13 @@
          }
 
 
+         // GET USEFUL LINKS
+         var getLinks = firebase.database().ref('useful/');
+         getLinks = $firebaseObject(getLinks);
+         getLinks.$bindTo($scope, "links")
+
+
+        
 
 
 

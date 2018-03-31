@@ -51,6 +51,24 @@
                     </label>
                 </div>
             </div>
+            <!-- ADD USEFUL LINK-->
+            <div class="boxWrap col-12 col-md-6">
+                <div class="dashbox d6">
+                    <h3>Useful Links</h3>
+                    <input type="text" name="" ng-model="useful.name" placeholder="Title of Link">
+                    <input type="text" name="" ng-model="useful.link" placeholder="HTTP Address">
+                    <input type="text" name="" ng-model="useful.img" placeholder="/images/something.png">
+                    <select ng-model="useful.type">
+                        <option value="download">Download/CDN</option>
+                        <option value="HTML">HTML</option>
+                        <option value="CSS">CSS</option>
+                        <option value="JS">JavaScript</option>
+                        <option value="JQ">jQuery</option>
+                        <option value="Bootstrap">Bootstrap</option>
+                    </select>
+                    <button ng-show="useful.name && useful.link && useful.img && useful.type" ng-click="createLink(useful); useful=null" class="btn1">Create Link</button>
+                </div>
+            </div>
             <!-- SECTIONS HOME -->
             <div class="boxWrap col-12 col-md-6">
                 <div class="dashbox d3">
@@ -130,7 +148,7 @@
             </div>
             <!-- Quiz Creator -->
             <div class="boxWrap col-12 col-md-6">
-                <div class="dashbox d4">
+                <div class="dashbox d5">
                     <h3>Create a quiz</h3>
                     <quiz></quiz>
                 </div>

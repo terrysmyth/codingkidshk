@@ -23,6 +23,20 @@ app.directive('showquiz', function() {
     }
 });
 
+app.directive('material', function() {
+    return {
+        restrict: 'E',
+        templateUrl: 'directives/material.html'
+    }
+});
+
+app.directive('texteditor', function() {
+    return {
+        restrict: 'E',
+        templateUrl: 'directives/texteditor.html'
+    }
+});
+
 
 
 
@@ -30,6 +44,12 @@ app.config(function($routeProvider) {
     $routeProvider
         .when("/admin", {
             templateUrl: "admin.html",
+        })
+        .when("/terms", {
+            templateUrl: "terms.html",
+        })
+        .when("/class", {
+            templateUrl: "class.html",
         })
         .when("/profile", {
             templateUrl: "profile.html",

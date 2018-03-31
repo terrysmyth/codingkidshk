@@ -20,6 +20,8 @@
                 <div class="profilePimg" style="background-image: url({{user.photoURL}});"></div>
                 <p ng-click="profilePage = 'p1'">Profile</p>
                 <p ng-click="profilePage = 'p2'; currentQuestion = -1; answers = []; reset()">Quizes</p>
+                <p ng-click="profilePage = 'p6'">Material/Links</p>
+                <p ng-click="profilePage = 'p7'">Online Coding</p>
                 <p ng-click="profilePage = 'p3'">Free Videos</p>
                 <p ng-click="logout()">Logout</p>
             </div>
@@ -83,8 +85,23 @@
                             <p ng-show="profile.quizes[quiz.id].percent.percent > 85">P</p>
                             <p ng-show="profile.quizes[quiz.id].percent.percent <= 85">I</p>
                         </div>
-              
                     </div>
+                </div>
+                <p ng-show="!profile.student">Sorry you havent been verified as a student yet. This material is not available until then. Thanks.</p>
+            </div>
+            <!-- USEFUL MATERIAL -->
+            <div ng-show="profilePage == 'p6'" class="profileBox p2 col-12 col-md-7">
+                <h3>Useful Material/Links:</h3>
+                <div class="" ng-show="profile.student">
+                    <material></material>
+                </div>
+                <p ng-show="!profile.student">Sorry you havent been verified as a student yet. This material is not available until then. Thanks.</p>
+            </div>
+            <!-- ONLINE CODING -->
+            <div ng-show="profilePage == 'p7'" class="profileBox p2 col-12 col-md-7">
+                <h3>Online Coding:</h3>
+                <div class="" ng-show="profile.student">
+                    <iframe  src="/directives/texteditor.html" class="iframeWindow" width="100%"></iframe>
                 </div>
                 <p ng-show="!profile.student">Sorry you havent been verified as a student yet. This material is not available until then. Thanks.</p>
             </div>

@@ -1,0 +1,46 @@
+<div class="hero small">
+</div>
+<div class="classPageWrapper">
+    <div class="classPageInner container">
+        <div class="row">
+            <div class="col-12 col-md-4 classPageBox">
+                <h2 ng-show="!edit">{{chosenClass.name}}</h2>
+                <input type="text" name="" ng-model="chosenClass.name" ng-show="edit">
+                <h3 ng-show="!edit">{{chosenClass.subtitle}}</h3>
+                <input type="text" name="" ng-model="chosenClass.subtitle" ng-show="edit">
+                <p ng-show="!edit">{{chosenClass.body}}</p>
+                <textarea ng-model="chosenClass.body" placeholder="Description" ng-show="edit"></textarea>
+                <button class="submitBtn" ng-click="updateClass(chosenClass);edit = !edit" ng-show="edit">Update</button>
+            </div>
+            <div class="col-12 col-md-4 classPageBox wImage" style="background-image: url({{chosenClass.img}});"></div>
+            <div class="col-12 col-md-4 classPageBox">
+                <h3>Outcomes</h3>
+                <p ng-show="!edit">{{chosenClass.outcome}}</p>
+                <textarea ng-model="chosenClass.outcome" placeholder="OUtcomes" ng-show="edit"></textarea>
+                <h3>To bring</h3>
+                <p ng-show="!edit">{{chosenClass.bring}}</p>
+                <input type="text" name="" ng-model="chosenClass.bring" ng-show="edit">
+                <input type="text" name="" ng-model="chosenClass.img" ng-show="edit">
+                <a href="#!/signup" class="submitBtn">Sign up!</a>
+            </div>
+            <div class="col-12 col-md-4 classPageBox wImage" style="background-image: url(/images/bck1.jpg);"></div>
+            <div class="col-12 col-md-4 classPageBox">
+                <p class="edit" ng-click="edit = !edit" ng-init="!edit" ng-show="!edit" ng-if="profile.role == 'admin'">edit</p>
+                <h3>Price</h3>
+                <h4 ng-show="!edit">${{chosenClass.price}}/per class</h4>
+                <input type="text" name="" ng-model="chosenClass.price" ng-show="edit">
+                <p>When you sign up for the term, you get an autmatic 10% discount.</p>
+                <h3 ng-show="!edit">{{chosenClass.day}} at {{chosenClass.time}}</h3>
+                <input type="text" name="" ng-model="chosenClass.day" ng-show="edit">
+                <input type="text" name="" ng-model="chosenClass.time" ng-show="edit">
+            </div>
+            <div class="col-12 col-md-4 classPageBox wImage" style="background-image: url(/images/bck2.jpg);"></div>
+        </div>
+    </div>
+    <div class="discounts container">
+        <h3>Buddy/Sibiling Discount: <span>Receive an additional 5% when you sign up with a sibling or friend!</span></h3>
+    </div>
+    <div class="discounts container">
+        <h3>2nd/3rd Class: <span>If a child is doing a 2nd class, get 15% off the second class. Get 40% off the 3rd class!</span></h3>
+    </div>
+</div>

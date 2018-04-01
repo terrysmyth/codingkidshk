@@ -3,8 +3,8 @@
  angular.module("myApp")
      .controller('mainCtrl', function($rootScope, $scope, $location, $firebaseObject, $window) {
 
-        // DATE
-        $scope.date = new Date();
+         // DATE
+         $scope.date = new Date();
 
          // Current User *********************************************************************
          var user = firebase.auth().currentUser;
@@ -51,6 +51,34 @@
          var getGen = firebase.database().ref('meta');
          getGen = $firebaseObject(getGen);
          getGen.$bindTo($scope, "meta");
+
+         // GET CLASSES
+         var getClass = firebase.database().ref('class');
+         getClass = $firebaseObject(getClass);
+         getClass.$bindTo($scope, "classes");
+
+         // Set chosen class
+         $scope.pickClass = function(info) {
+             $rootScope.chosenClass = info;
+         }
+
+         $scope.updateClass = function(info) {
+
+             firebase.database().ref('class/' + info.id).set({
+                 name: info.name,
+                 subtitle: info.subtitle,
+                 type: info.type,
+                 img: info.img,
+                 id: info.id,
+                 age: info.age,
+                 price: info.price,
+                 body: info.body,
+                 outcome: info.outcome,
+                 bring: info.bring,
+                 day: info.day,
+                 time: info.time,
+             });
+         }
 
 
      })

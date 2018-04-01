@@ -83,6 +83,36 @@
 
          }
 
+         // CREATE CLASS *************************************************************
+
+         $scope.createClass = function(info) {
+            // Get a key for a new Post.
+             var newPostKey = firebase.database().ref().child('class').push().key;
+
+             firebase.database().ref('class/' + newPostKey).set({
+                 name: info.name,
+                 subtitle: info.subtitle,
+                 type: info.type,
+                 img: info.img,
+                 id: newPostKey,
+                 age: info.age,
+                 price: info.price,
+                 body: info.body,
+                 outcome: info.outcome,
+                 bring: info.bring,
+                 day: info.day,
+                 time: info.time,
+             });
+
+         }
+
+
+         // GET TERM
+         var getTerm = firebase.database().ref('term');
+         getTerm = $firebaseObject(getTerm);
+         getTerm.$bindTo($scope, "term");
+
+
 
 
      })

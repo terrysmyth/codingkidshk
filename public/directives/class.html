@@ -1,0 +1,50 @@
+<label>
+    <em>Title</em>
+    <input type="text" name="" ng-model="class.name" placeholder="Class Title">
+</label>
+<label>
+    <em>Subtitle</em>
+    <input type="text" name="" ng-model="class.subtitle" placeholder="Class Subtitle">
+</label>
+<label>
+    <em>Image</em>
+    <input type="text" name="" ng-model="class.img" placeholder="/images/something.jpg">
+</label>
+<label>
+    <em>Age</em>
+    <input type="text" name="" ng-model="class.age" placeholder="age: 6-8">
+</label>
+<label>
+    <em>Type</em>
+    <select ng-model="class.type">
+        <option value="JS">JavaScript</option>
+        <option value="Web">Web Development</option>
+    </select>
+</label>
+<label>
+    <em>Price</em>
+    <input type="text" name="" ng-model="class.price" placeholder="Class Price">
+</label>
+<label>
+    <em>Body</em>
+    <textarea ng-model="class.body" placeholder="Class Info"></textarea>
+</label>
+<label>
+    <em>Outcomes</em>
+    <textarea ng-model="class.outcome" placeholder="Class Outcomes"></textarea>
+</label>
+<label>
+    <em>Bring</em>
+    <input type="text" name="" ng-model="class.bring" placeholder="Mon/Tue/Wed...">
+</label>
+<label>
+    <em>Day</em>
+    <input type="text" name="" ng-model="class.day" placeholder="Mon/Tue/Wed...">
+</label>
+<label>
+    <em>Time</em>
+    <input type="text" name="" ng-model="class.time" placeholder="Time: 4:00">
+</label>
+<button class="submitBtn" ng-click="createClass(class); class = null" 
+ng-show="class.name && class.subtitle && class.img && class.age && class.type && class.price && class.body && class.outcome && class.bring && class.day && class.time"
+>Create Class</button>

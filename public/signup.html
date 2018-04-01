@@ -1,0 +1,26 @@
+<div class="hero small"></div>
+<div class="signupWrap container">
+	 <!-- CONTACT US -->
+    <div class="contactWrap columnCenter">
+        <form class="contactForm columnCenter" action="????" method="POST" id="mG61Hd" target="hidden_iframe1" onsubmit="newCompany1=true;">
+            <h3>Sign up</h3>
+            <label>Parent Info</label>
+            <input type="text" name="" placeholder="First name" required>
+            <input type="text" name="" placeholder="Family name" required>
+            <input type="email" name="" placeholder="Email" required>
+            <input type="number" name="" placeholder="Phone number" required>
+            <label>Student/s Info</label>
+            <input type="text" name="" placeholder="Name/s" required>
+            <select>
+            	<option ng-repeat="class in classes">{{class.name}}</option>
+            </select>
+            <textarea name="" placeholder="Medical or other notes:"></textarea>
+            <input type="submit" name="" value="Register">
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+var newCompany1 = false;
+</script>
+<iframe name="hidden_iframe1" id="hidden_iframe1" style="display:none;" onload="if(newCompany1) {window.location='#!/thank-you';$(window).scrollTop(0)}"></iframe>

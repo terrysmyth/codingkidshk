@@ -136,6 +136,56 @@
                     </div>
                 </div>
             </div>
+            <!-- Term  -->
+            <div class="boxWrap col-12 col-md-6">
+                <div class="dashbox d7">
+                     <p class="edit" ng-click="edit4 = !edit4" ng-init="!edit4" ng-show="!edit4">edit</p>
+                    <p class="edit" ng-click="edit4 = !edit4" ng-init="!edit4" ng-show="edit4">save</p>
+                    <h3>Term</h3>
+                    <label>
+                        <em>Start</em>
+                        <span ng-show="!edit4">{{term.name}}</span>
+                        <input type="text" name="" ng-model="term.name" placeholder="{{term.name}}" ng-show="edit4">
+                    </label>
+                    <label>
+                        <em>End</em>
+                        <span ng-show="!edit4">{{term.subtitle}}</span>
+                        <input type="text" name="" ng-model="term.subtitle" placeholder="{{term.subtitle}}" ng-show="edit4">
+                    </label>
+                    <label>
+                        <em>Name</em>
+                        <span ng-show="!edit4">{{term.body}}</span>
+                        <input type="text" name="" ng-model="term.body" placeholder="{{term.body}}" ng-show="edit4">
+                    </label>
+                    <label>
+                        <em>Year</em>
+                        <span ng-show="!edit4">{{term.year}}</span>
+                        <input type="text" name="" ng-model="term.year" placeholder="{{term.year}}" ng-show="edit4">
+                    </label>
+                    <label>
+                        <em>Holidays</em>
+                        <span ng-show="!edit4">{{term.holidays}}</span>
+                        <input type="text" name="" ng-model="term.holidays" placeholder="{{term.holidays}}" ng-show="edit4">
+                    </label>
+                    <label>
+                        <em>Exceptions</em>
+                        <span ng-show="!edit4">{{term.exceptions}}</span>
+                        <input type="text" name="" ng-model="term.exceptions" placeholder="{{term.exceptions}}" ng-show="edit4">
+                    </label>
+                    <label>
+                        <em>Total Weeks</em>
+                        <span ng-show="!edit4">{{term.weeks}}</span>
+                        <input type="text" name="" ng-model="term.weeks" placeholder="{{term.weeks}}" ng-show="edit4">
+                    </label>
+                </div>
+            </div>
+            <!-- Class Creator -->
+            <div class="boxWrap col-12 col-md-6">
+                <div class="dashbox d6">
+                    <h3>Create a Class</h3>
+                    <class></class>
+                </div>
+            </div>
             <!-- Quiz Creator -->
             <div class="boxWrap col-12 col-md-6">
                 <div class="dashbox d5">

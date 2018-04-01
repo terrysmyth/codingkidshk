@@ -37,6 +37,13 @@ app.directive('texteditor', function() {
     }
 });
 
+app.directive('class', function() {
+    return {
+        restrict: 'E',
+        templateUrl: 'directives/class.html'
+    }
+});
+
 
 
 
@@ -62,6 +69,12 @@ app.config(function($routeProvider) {
         })
         .when("/login", {
             templateUrl: "login.html",
+        })
+        .when("/classPage", {
+            templateUrl: "classPage.html",
+        })
+        .when("/signup", {
+            templateUrl: "signup.html",
         })
         .otherwise({
             redirectTo: '/home'

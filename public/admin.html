@@ -109,14 +109,19 @@
                     <p class="new">new</p>
                     <div class="miniSection" ng-repeat="section in major">
                         <label>
-                            <em>Title:</em>
+                            <em>Title</em>
                             <span ng-show="!edit3">{{section.header}}</span>
                             <input type="text" name="" ng-model="section.header" placeholder="section.header" ng-show="edit3">
                         </label>
                         <label>
-                            <em>Sub-Title </em>
+                            <em>Sub-Title</em>
                             <span ng-show="!edit3">{{section.subheader}}</span>
                             <input type="text" name="" ng-model="section.subheader" placeholder="section.subheader" ng-show="edit3">
+                        </label>
+                        <label>
+                            <em>Body</em>
+                            <span ng-show="!edit3">{{section.body}}</span>
+                            <textarea ng-model="section.body" placeholder="{{section.body}}" ng-show="edit3"></textarea>
                         </label>
                         <label>
                             <em>Link </em>
@@ -129,6 +134,13 @@
                             <input type="text" name="" ng-model="section.img" placeholder="section.img" ng-show="edit3">
                         </label>
                     </div>
+                </div>
+            </div>
+            <!-- Quiz Creator -->
+            <div class="boxWrap col-12 col-md-6">
+                <div class="dashbox d5">
+                    <h3>Create a quiz</h3>
+                    <quiz></quiz>
                 </div>
             </div>
             <!-- Student List -->
@@ -144,13 +156,6 @@
                             </label>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- Quiz Creator -->
-            <div class="boxWrap col-12 col-md-6">
-                <div class="dashbox d5">
-                    <h3>Create a quiz</h3>
-                    <quiz></quiz>
                 </div>
             </div>
         </div>

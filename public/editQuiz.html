@@ -1,0 +1,46 @@
+<div class="hero small"></div>
+<div class="editQuizWrap" ng-controller="editQuizCtrl">
+    <div class="container" ng-if="profile.role == 'admin'">
+        <h2>Edit Quiz: {{chosenQuiz.name}}</h2>
+        <div class="quizIntro">
+            <label>
+                Name: {{chosenQuiz.name}}
+                <input type="text" ng-model="chosenQuiz.name">
+            </label>
+            <label>
+                Type: {{chosenQuiz.type}}
+            </label>
+            <select ng-model="chosenQuiz.type">
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="JS">JS</option>
+                <option value="JQ">JQ</option>
+                <option value="Bootstrap">Bootstrap</option>
+            </select>
+            <label>
+                Difficulty: {{chosenQuiz.difficulty}}
+            </label>
+            <select ng-model="chosenQuiz.difficulty">
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="expert">Expert</option>
+            </select>
+            <button class="saveQuiz" ng-click="saveQuiz(chosenQuiz)">Save Changes</button>
+        </div>
+        <div class="editQuizQuestions">
+            <div class="editQuestion" ng-repeat="question in chosenQuiz.questions">
+                <label>
+                    <span>Q{{$index + 1}}</span>
+                    Questions: {{question.q}}
+                    <input type="text" ng-model="question.q">
+                    <input type="text" ng-model="question.multi.a1" ng-if="question.type == 'multi'">
+                    <input type="text" ng-model="question.multi.a2" ng-if="question.type == 'multi'">
+                    <input type="text" ng-model="question.multi.a3" ng-if="question.type == 'multi'">
+                    <input type="text" ng-model="question.multi.a4" ng-if="question.type == 'multi'">
+                    <input type="text" ng-model="question.a">
+                </label>
+            </div>
+            <button class="saveQuiz" ng-click="saveQuiz(chosenQuiz)">Save Changes</button>
+        </div>
+    </div>
+</div>

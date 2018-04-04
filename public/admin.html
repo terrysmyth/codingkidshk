@@ -193,6 +193,19 @@
                     <quiz></quiz>
                 </div>
             </div>
+            <!-- QUIZ List -->
+            <div class="boxWrap col-12 col-md-6">
+                <div class="dashbox d4">
+                    <h3>Quizes:</h3>
+                    <div class="studentList">
+                        <div class="student" ng-repeat="quiz in quizes">
+                            <p>{{quiz.name}}</p>
+                            <p>{{quiz.type}}</p>
+                            <a href="#!/editQuiz" ng-click="editQuiz(quiz)">edit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- Student List -->
             <div class="boxWrap col-12 col-md-6">
                 <div class="dashbox d4">

@@ -139,7 +139,7 @@
                 </div>
                 <div class="answersWrap">
                     <div ng-repeat="item in result.a" class="answerInner" ng-class="{'correct' : item.a }">
-                        <p><span>Q{{$index}}</span>{{item.q}}</p>
+                        <p><span>Q{{$index + 1}}</span>{{item.q}}</p>
                         <p class="answer c" ng-show="item.a">Correct</p>
                         <p class="answer i" ng-show="!item.a">Incorrect</p>
                     </div>

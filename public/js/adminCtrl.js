@@ -67,6 +67,17 @@
              $scope.quiz = null;
          }
 
+          // GET QUIZES
+         var getQuizes = firebase.database().ref('quizes');
+         getQuizes = $firebaseObject(getQuizes);
+         getQuizes.$bindTo($scope, "quizes");
+
+         // GET CHOSEN QUIZ
+         $scope.editQuiz = function(quiz) {
+            $rootScope.chosenQuiz = quiz;
+         }
+
+
          // CREATE USEFUL LINK *************************************************************
 
          $scope.createLink = function(useful) {

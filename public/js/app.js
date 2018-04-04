@@ -76,6 +76,9 @@ app.config(function($routeProvider) {
         .when("/signup", {
             templateUrl: "signup.html",
         })
+        .when("/editQuiz", {
+            templateUrl: "editQuiz.html",
+        })
         .otherwise({
             redirectTo: '/home'
         });

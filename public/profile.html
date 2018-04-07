@@ -75,9 +75,30 @@
             </div>
             <!-- AVAILABLE QUIZES -->
             <div ng-show="profilePage == 'p2'" class="profileBox p2 col-12 col-md-7">
-                <h3>Quizes:</h3>
+                <h3 ng-init="quizFilter = 'all'">Quizes:</h3>
+                <div class="quizFilter">
+                    <input id="op1" type="radio" name="quiz" value="all" ng-model="quizFilter">
+                    <label class="filterLabel" for="op1">ALL</label>
+
+                    <input id="op2" type="radio" name="quiz" value="HTML" ng-model="quizFilter">
+                    <label class="filterLabel" for="op2">HTML</label>
+
+                    <input id="op3" type="radio" name="quiz" value="CSS" ng-model="quizFilter">
+                    <label class="filterLabel" for="op3">CSS</label>
+
+                    <input id="op4" type="radio" name="quiz" value="JS" ng-model="quizFilter">
+                    <label class="filterLabel" for="op4">JS</label>
+
+                    <input id="op5" type="radio" name="quiz" value="JQ" ng-model="quizFilter">
+                    <label class="filterLabel" for="op5">JQ</label>
+
+                    <input id="op6" type="radio" name="quiz" value="Bootstrap" ng-model="quizFilter">
+                    <label class="filterLabel" for="op6">Bootstrap</label>
+
+                  
+                </div>
                 <div class="profileQuizWrap" ng-show="profile.student" ng-init="takeQuiz = null">
-                    <div class="quizWrap" ng-repeat="quiz in quizes" ng-click="$parent.takeQuiz = quiz; $parent.profilePage = 'p4'">
+                    <div class="quizWrap" ng-repeat="quiz in quizes" ng-click="$parent.takeQuiz = quiz; $parent.profilePage = 'p4'" ng-show="quiz.type == quizFilter || quizFilter == 'all'">
                         <p class="quizType {{quiz.type}}">{{quiz.type}}</p>
                         <h3>{{quiz.name}}</h3>
                         <p class="quizDif">{{quiz.difficulty}}</p>
@@ -101,7 +122,7 @@
             <div ng-show="profilePage == 'p7'" class="profileBox p2 col-12 col-md-7">
                 <h3>Online Coding:</h3>
                 <div class="" ng-show="profile.student">
-                    <iframe  src="/directives/texteditor.html" class="iframeWindow" width="100%"></iframe>
+                    <iframe src="/directives/texteditor.html" class="iframeWindow" width="100%"></iframe>
                 </div>
                 <p ng-show="!profile.student">Sorry you havent been verified as a student yet. This material is not available until then. Thanks.</p>
             </div>

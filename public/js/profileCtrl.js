@@ -124,11 +124,6 @@
          getLinks.$bindTo($scope, "links")
 
 
-        
-
-
-
-
 
 
          // END

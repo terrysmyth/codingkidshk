@@ -33,7 +33,15 @@
                      name: studentInfo.parent.name,
                      email: studentInfo.parent.email,
                      phone: studentInfo.parent.phone,
-                     points: 0
+
+                 },
+                 points: {
+                     total: 0,
+                     HTML: 0,
+                     CSS: 0,
+                     JS: 0,
+                     JQ: 0,
+                     Bootstrap: 0
                  }
              }).then(() => {
                  // GET PROFILE
@@ -41,9 +49,10 @@
                  getProfile = $firebaseObject(getProfile);
                  getProfile.$bindTo($rootScope, "profile");
                  console.log(getProfile)
-
-             }).catch(() => {
-
+                 alertify.success('Success: Profile Created');
+             }).catch((error) => {
+                 alertify.error('Error in making profile.');
+                 console.log(error)
              })
 
          };
@@ -107,12 +116,21 @@
 
              if (result.percent > 85) {
 
-                 // GET QUIZES 
-                 var getPoints = firebase.database().ref('users/' + user.uid + '/points').once('value').then(function(snapshot) {
+                 // GET POINTS 
+                 var getPoints = firebase.database().ref('users/' + user.uid + '/points/total').once('value').then(function(snapshot) {
                      var userPoints = snapshot.val();
-                     firebase.database().ref('users/' + user.uid + '/points/').set(userPoints + 20);
+                     firebase.database().ref('users/' + user.uid + '/points/total').set(userPoints + 20);
                  });
 
+                 // GET SPECIFIC POINTS 
+                 var getSPoints = firebase.database().ref('users/' + user.uid + '/points/' + quizID.type).once('value').then(function(snapshot) {
+                     var userSPoints = snapshot.val();
+                     firebase.database().ref('users/' + user.uid + '/points/' + quizID.type).set(userSPoints + 20);
+                 });
+                 alertify.success('Well done! Points added!');
+
+             } else {
+                 alertify.error('Better luck next time!');
              }
 
          }
@@ -122,6 +140,12 @@
          var getLinks = firebase.database().ref('useful/');
          getLinks = $firebaseObject(getLinks);
          getLinks.$bindTo($scope, "links")
+
+
+         // SAVE TEXT EDITOR 
+         $scope.saveSandBox = function(info) {
+             console.log(info)
+         }
 
 
 

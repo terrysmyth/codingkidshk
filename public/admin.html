@@ -211,10 +211,12 @@
                 <div class="dashbox d4">
                     <h3>Student</h3>
                     <div class="studentList">
-                        <div class="student" ng-repeat="student in students">
-                            <p>{{student.username}}</p>
+                        <div class="student" ng-repeat="(key, value) in students">
+                            <a href="#!/studentPage">
+                                <p ng-click="getStudent(value, key)">{{value.username}}</p>
+                            </a>
                             <label class="switch switch_type1" role="switch">
-                                <input type="checkbox" class="switch__toggle" checked ng-model="student.student">
+                                <input type="checkbox" class="switch__toggle" checked ng-model="value.student">
                                 <span class="switch__label"></span>
                             </label>
                         </div>

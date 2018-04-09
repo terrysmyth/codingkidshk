@@ -28,7 +28,15 @@
             <div class="col-1"></div>
             <!-- PROFILE -->
             <div ng-show="profilePage == 'p1'" class="profileBox p1 col-12 col-md-7">
-                <h3>{{user.displayName}} <span ng-show="profile.points">points:{{profile.points}}{{points}}</span></h3>
+                <h3>{{user.displayName}}</h3>
+                <div class="profilePoints" ng-show="profile.points.total">
+                    <h4 ng-show="profile.points.total"><span>POINTS:</span> {{profile.points.total}}</h4>
+                    <p ng-show="profile.points.HTML"><span>HTML:</span> {{profile.points.HTML}}</p>
+                    <p ng-show="profile.points.CSS"><span>CSS:</span> {{profile.points.CSS}}</p>
+                    <p ng-show="profile.points.JS"><span>JS:</span> {{profile.points.JS}}</p>
+                    <p ng-show="profile.points.JQ"><span>JQ:</span> {{profile.points.JQ}}</p>
+                    <p ng-show="profile.points.Bootstrap"><span>Bootstrap:</span> {{profile.points.Bootstrap}}</p>
+                </div>
                 <div class="profileUserInfo">
                     <div class="profileUserInner" ng-init="edit = false">
                         <h4>YOU:</h4>

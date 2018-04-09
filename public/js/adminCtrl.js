@@ -37,6 +37,14 @@
          getStudents = $firebaseObject(getStudents);
          getStudents.$bindTo($scope, "students");
 
+         $scope.getStudent = function(info, key) {
+             console.log(info)
+             console.log(key)
+
+             $rootScope.chosenStudent = info;
+             $rootScope.chosenStudent.key = key;
+         }
+
 
          // QUIZ ************************************************************************
 
@@ -48,56 +56,73 @@
          }
 
          $scope.submitQuiz = function(quiz, questions) {
-             // Get a key for a new Post.
-             var newPostKey = firebase.database().ref().child('quizes').push().key;
 
-             firebase.database().ref('quizes/' + newPostKey).set({
-                 name: quiz.name,
-                 type: quiz.type,
-                 difficulty: quiz.difficulty,
-                 questions: questions,
-                 id: newPostKey,
-                 link: quiz.link
-             });
+             alertify.confirm("Submit new quiz?",
+                 function() {
+                     // Get a key for a new Post.
+                     var newPostKey = firebase.database().ref().child('quizes').push().key;
 
-             console.log(quiz)
-             console.log(questions)
+                     firebase.database().ref('quizes/' + newPostKey).set({
+                         name: quiz.name,
+                         type: quiz.type,
+                         difficulty: quiz.difficulty,
+                         questions: questions,
+                         id: newPostKey,
+                         link: quiz.link
+                     });
 
-             $scope.questions = null;
-             $scope.quiz = null;
+                     console.log(quiz)
+                     console.log(questions)
+
+                     $scope.questions = null;
+                     $scope.quiz = null;
+                     alertify.success('Quiz submitted');
+                 },
+                 function() {
+                     alertify.error('Cancelled');
+                 });
+
          }
 
-          // GET QUIZES
+         // GET QUIZES
          var getQuizes = firebase.database().ref('quizes');
          getQuizes = $firebaseObject(getQuizes);
          getQuizes.$bindTo($scope, "quizes");
 
          // GET CHOSEN QUIZ
          $scope.editQuiz = function(quiz) {
-            $rootScope.chosenQuiz = quiz;
+             $rootScope.chosenQuiz = quiz;
          }
 
 
          // CREATE USEFUL LINK *************************************************************
 
          $scope.createLink = function(useful) {
-            // Get a key for a new Post.
-             var newPostKey = firebase.database().ref().child('useful').push().key;
 
-             firebase.database().ref('useful/' + newPostKey).set({
-                 name: useful.name,
-                 type: useful.type,
-                 img: useful.img,
-                 id: newPostKey,
-                 link: useful.link
-             });
+             try {
+                 // Get a key for a new Post.
+                 var newPostKey = firebase.database().ref().child('useful').push().key;
+
+                 firebase.database().ref('useful/' + newPostKey).set({
+                     name: useful.name,
+                     type: useful.type,
+                     img: useful.img,
+                     id: newPostKey,
+                     link: useful.link
+                 });
+                 alertify.success('Link Added');
+             } catch (err) {
+                alertify.error('Failed to add link');
+                console.log(err)
+             }
+
 
          }
 
          // CREATE CLASS *************************************************************
 
          $scope.createClass = function(info) {
-            // Get a key for a new Post.
+             // Get a key for a new Post.
              var newPostKey = firebase.database().ref().child('class').push().key;
 
              firebase.database().ref('class/' + newPostKey).set({

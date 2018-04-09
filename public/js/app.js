@@ -52,6 +52,9 @@ app.config(function($routeProvider) {
         .when("/admin", {
             templateUrl: "admin.html",
         })
+        .when("/studentPage", {
+            templateUrl: "studentPage.html",
+        })
         .when("/terms", {
             templateUrl: "terms.html",
         })
@@ -60,6 +63,9 @@ app.config(function($routeProvider) {
         })
         .when("/profile", {
             templateUrl: "profile.html",
+        })
+        .when("/schedule", {
+            templateUrl: "schedule.html",
         })
         .when("/thank-you", {
             templateUrl: "thank-you.html",
@@ -75,6 +81,9 @@ app.config(function($routeProvider) {
         })
         .when("/signup", {
             templateUrl: "signup.html",
+        })
+        .when("/online", {
+            templateUrl: "online.html",
         })
         .when("/editQuiz", {
             templateUrl: "editQuiz.html",

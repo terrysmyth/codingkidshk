@@ -22,6 +22,7 @@ body {
 
 * {
     font-family: 'Abel', sans-serif;
+    color: #585858;
 }
 
 a,
@@ -366,6 +367,7 @@ nav a:hover img {
 .profileNav p {
     transition-duration: 0.3s;
     cursor: pointer;
+    color: #fff;
 }
 
 .profileNav p:hover {
@@ -429,6 +431,33 @@ nav a:hover img {
     right: 10px;
 }
 
+.profilePoints {
+    border-top: 1px rgba(0,0,0,0.1) solid;
+    padding: 10px;
+    background-color: #f5f5f5;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: start;
+    -webkit-justify-content: start;
+    flex-wrap:wrap;
+    -webkit-flex-wrap:wrap;
+}
+
+.profilePoints h4 {
+    width: 100%;
+}
+
+.profilePoints p {
+    margin: 0;
+    min-width: 120px;
+}
+
+.profilePoints p span {
+    color: green;
+    font-family: 'Anton';
+    letter-spacing: 1px;
+}
+
 .usefulWrap {
     background-color: #f5f5f5;
     padding: 10px;
@@ -467,7 +496,22 @@ nav a:hover img {
     border: 0;
 }
 
+/* ONLINE EDUCATION */
 
+.onlineWrap {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.innerOnline {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #f5f5f5;
+}
+
+.innerInner {
+    margin-top: 20px;
+}
 
 
 
@@ -848,8 +892,81 @@ nav a:hover img {
     display: none;
 }
 
+/* SCHEDULE */
 
+.scheduleFilter label {
+    border: 1px #fff solid;
+    background-color: #585858;
+    color: #fff;
+    padding: 5px 20px;
+    cursor: pointer;
+    border-radius: 0px;
+    transition-duration:0.5s;
+}
 
+.scheduleFilter label:hover {
+    border-radius: 50px;
+}
+
+.scheduleFilter input[type="radio"]:checked + label {
+    background-color: green !important;
+}
+
+.scheduleFilter input {
+    display: none;
+}
+
+.scheduleWrap {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.innerScheduleDay{
+    margin-top: 20px;
+    border-left: 4px #F46002 solid;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    position: relative;
+}
+.innerScheduleDay h3 {
+    padding: 10px;
+    background-color: #fff;
+    margin: 0;
+}
+
+.innerScheduleDay h4 {
+    padding: 10px;
+    margin: 0;
+    color: #fff;
+    background-color: #304d5b;
+}
+
+.innerScheduleDay h5 {
+    margin: 0;
+    padding: 10px;
+    color: #fff;
+    background-color: #F46002;
+    font-size: 22px;
+}
+
+.innerScheduleDay a {
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    background-color: #fff;
+    border: 4px #F46002 solid;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 23px;
+    color: #F46002;
+    right: 10px;
+    bottom: -40px;
+    transition-duration:0.3s;
+}
+
+.innerScheduleDay a:hover {
+    transform: scale(1.1);
+}
 
 
 
@@ -1008,7 +1125,17 @@ nav a:hover img {
     background-color: green;
 }
 
+.classBox {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 
+.classDay {
+    display: inline-block;
+    float: right;
+    color: orange;
+    font-size: 20px;
+}
 
 
 
@@ -1545,6 +1672,11 @@ textarea:focus {
     background: #E74B37;
 }
 
+/* ALERTIFY */
+
+.alertify.ajs-movable:not(.ajs-maximized) .ajs-header  {
+    display: none !important;
+}
 
 @media (max-width: 1200px) {
     .quizResultLine .middle {

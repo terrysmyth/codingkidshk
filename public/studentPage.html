@@ -1,0 +1,63 @@
+<div class="hero small"></div>
+<div class="studentPageWrap" ng-if="profile.role == 'admin'">
+    <div class="container">
+        <div class='row'>
+            <!-- PROFILE -->
+            <div class="col-md-2"></div>
+            <div class="profileBox p1 col-12 col-md-8">
+                <h3>{{chosenStudent.username}}</h3>
+                <div class="profilePoints">
+                    <h4><span>POINTS:</span> {{chosenStudent.points.total}}</h4>
+                    <p><span>HTML:</span> {{chosenStudent.points.HTML}}</p>
+                    <p><span>CSS:</span> {{chosenStudent.points.CSS}}</p>
+                    <p><span>JS:</span> {{chosenStudent.points.JS}}</p>
+                    <p><span>JQ:</span> {{chosenStudent.points.JQ}}</p>
+                    <p><span>Bootstrap:</span> {{chosenStudent.points.Bootstrap}}</p>
+                </div>
+                <div class="profileUserInfo">
+                    <div class="profileUserInner" ng-init="edit = false">
+                        <h4>YOU:</h4>
+                        <p ng-click="edit = !edit" class="edit" ng-show="!edit">edit</p>
+                        <p ng-click="edit = !edit" class="edit" ng-show="edit">save</p>
+                        <label>
+                            Name: <span ng-show="!edit">{{chosenStudent.username}}</span>
+                            <input ng-show="edit" type="text" ng-model="chosenStudent.username" name="">
+                        </label>
+                        <label>
+                            Email: <span ng-show="!edit">{{chosenStudent.email}}</span>
+                            <input ng-show="edit" type="email" ng-model="chosenStudent.email" name="">
+                        </label>
+                    </div>
+                    <div class="profileUserInner" ng-init="edit1 = false">
+                        <h4>PARENT:</h4>
+                        <p ng-click="edit1 = !edit1" class="edit" ng-show="!edit1">edit</p>
+                        <p ng-click="edit1 = !edit1" class="edit" ng-show="edit1">save</p>
+                        <label>
+                            Name: <span ng-show="!edit1">{{chosenStudent.parent.name}}</span>
+                            <input ng-show="edit1" type="text" ng-model="chosenStudent.parent.name" name="">
+                        </label>
+                        <label>
+                            Email: <span ng-show="!edit1">{{chosenStudent.parent.email}}</span>
+                            <input ng-show="edit1" type="email" ng-model="chosenStudent.parent.email" name="">
+                        </label>
+                        <label>
+                            Phone: <span ng-show="!edit1">{{chosenStudent.parent.phone}}</span>
+                            <input ng-show="edit1" type="number" ng-model="chosenStudent.parent.phone" name="">
+                        </label>
+                    </div>
+                </div>
+                <div class="quizResultsWrapper" ng-show="chosenStudent.quizes">
+                    <h4>Quiz Results</h4>
+                    <div ng-repeat="quiz in chosenStudent.quizes" class="quizResultLine">
+                        <p>{{quiz.name}}</p>
+                        <p class="middle">{{quiz.type}}</p>
+                        <p class="middle">{{quiz.difficulty}}</p>
+                        <p>{{quiz.percent.percent}}%</p>
+                        <p ng-show="quiz.percent.percent > 85" ng-class="{'passed': quiz.percent.percent > 85}" class="result">PASSED</p>
+                        <p ng-show="quiz.percent.percent <= 85" class="result">INCOMPLETE</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

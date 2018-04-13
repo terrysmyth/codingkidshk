@@ -1,0 +1,16 @@
+<div class="hero small"></div>
+<div class="savedWorkWrap" ng-controller="saveWorkCtrl">
+    <div class="container">
+        <div id="showInfo">
+            <h2>{{chosenWork.name}}</h2>
+            <button class="btn1 save" ng-click="saveWork()">Save</button>
+            <button class="btn1 delete" ng-click="deleteWork()">Delete</button>
+        </div>
+        <!-- IFRAME -->
+        <iframe src="/directives/savededitor.html" class="iframeWindow" id="iframeWindow" width="100%">
+        </iframe>
+        <div id="deleteNotice">
+            <h3>Your work has been deleted!</h3>
+        </div>
+    </div>
+</div>

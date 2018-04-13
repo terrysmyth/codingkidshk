@@ -141,10 +141,57 @@
          getLinks = $firebaseObject(getLinks);
          getLinks.$bindTo($scope, "links")
 
+         // GET SAVED WORKS
+         var getWork = firebase.database().ref('users/' + user.uid + '/work/');
+         getWork = $firebaseObject(getWork);
+         getWork.$bindTo($scope, "works")
+
+         $scope.chosenWork = function(info) {
+             $rootScope.chosenWork = info;
+         }
+
 
          // SAVE TEXT EDITOR 
-         $scope.saveSandBox = function(info) {
-             console.log(info)
+         $scope.saveWork = function() {
+             var workHTML = document.getElementById('iframeWindow').contentWindow.getHTML();
+             var workCSS = document.getElementById('iframeWindow').contentWindow.getCSS();
+             var workName;
+
+
+             if (workHTML == "" || workCSS == "") {
+                 alertify.error('Both HTML and CSS need code!');
+             } else {
+                 alertify.prompt("Do you want to save your work?", "Super Cool Work #1",
+                     function(evt, value) {
+                         // Get a key for a new Post.
+                         var newPostKey = firebase.database().ref().child('users/' + user.uid + "/work/").push().key;
+
+                         firebase.database().ref('users/' + user.uid + "/work/" + newPostKey).set({
+                             name: value,
+                             html: workHTML,
+                             css: workCSS,
+                             id: newPostKey
+                         });
+                         alertify.success('Saved: ' + value);
+
+
+                         $rootScope.chosenWork = {
+                             name: value,
+                             html: workHTML,
+                             css: workCSS,
+                             id: newPostKey
+                         };
+                         $location.path('savedWork');
+                     },
+                     function() {
+                         alertify.error('Cancelled');
+                     });
+
+             };
+
+
+
+
          }
 
 

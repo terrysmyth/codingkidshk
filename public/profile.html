@@ -129,8 +129,14 @@
             <!-- ONLINE CODING -->
             <div ng-show="profilePage == 'p7'" class="profileBox p2 col-12 col-md-7">
                 <h3>Online Coding:</h3>
-                <div class="" ng-show="profile.student">
-                    <iframe src="/directives/texteditor.html" class="iframeWindow" width="100%"></iframe>
+                <div class="" ng-show="profile.student" ng-init="viewSaved = false;">
+                    <button class="workBtn" ng-click="viewSaved = true" ng-show="viewSaved == false">View Saved Work:</button>
+                    <button class="workBtn" ng-click="viewSaved = false" ng-show="viewSaved == true">Hide Saved Work:</button>
+                    <div class="saveWorkWrap" ng-class="{active: viewSaved}">
+                        <a href="#!/savedWork" ng-repeat="work in works" ng-click="chosenWork(work)">{{work.name}}</a>
+                    </div>
+                    <button class="saveWorkBtn" ng-click="saveWork()">save</button>
+                    <iframe src="/directives/texteditor.html" class="iframeWindow" id="iframeWindow" width="100%"></iframe>
                 </div>
                 <p ng-show="!profile.student">Sorry you havent been verified as a student yet. This material is not available until then. Thanks.</p>
             </div>

@@ -85,6 +85,9 @@ app.config(function($routeProvider) {
         .when("/online", {
             templateUrl: "online.html",
         })
+         .when("/savedWork", {
+            templateUrl: "savedWork.html",
+        })
         .when("/editQuiz", {
             templateUrl: "editQuiz.html",
         })

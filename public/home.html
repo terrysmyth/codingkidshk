@@ -3,13 +3,16 @@
     <div class="hero">
         <h1>{{general.hero.header}}</h1>
         <h3>{{general.hero.subheader}}</h3>
-        <a href="#!/">
+        <a href="#!/class">
             <button class="btn1">
                 Classes
             </button>
         </a>
-        <p ng-if="user">Welcome, {{profile.username || user.displayName}}<br>You are logged in!</p>
-        <div ng-if="user" class="heroProfile" ng-show="user.photoURL" style="background-image:url({{user.photoURL}})"></div>
+        <p ng-if="user">Welcome, {{profile.username || user.displayName}}
+            <br>You are logged in!</p>
+        <a href="#!/profile">
+            <div ng-if="user" class="heroProfile" ng-show="user.photoURL" style="background-image:url({{user.photoURL}})"></div>
+        </a>
     </div>
     <div class="location">
         Location: {{general.location}}

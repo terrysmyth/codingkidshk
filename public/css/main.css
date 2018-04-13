@@ -89,6 +89,7 @@ h3 {
 
 
 
+
 /* FOOTER */
 
 footer {
@@ -112,6 +113,7 @@ footer {
 .footerTerms {
     color: #F46E30;
 }
+
 
 
 
@@ -223,6 +225,7 @@ nav a:hover img {
 
 
 
+
 /* HERO */
 
 .hero {
@@ -291,6 +294,7 @@ nav a:hover img {
     border-radius: 50%;
     border: 2px white solid;
 }
+
 
 
 
@@ -432,15 +436,15 @@ nav a:hover img {
 }
 
 .profilePoints {
-    border-top: 1px rgba(0,0,0,0.1) solid;
+    border-top: 1px rgba(0, 0, 0, 0.1) solid;
     padding: 10px;
     background-color: #f5f5f5;
     display: flex;
     display: -webkit-flex;
     justify-content: start;
     -webkit-justify-content: start;
-    flex-wrap:wrap;
-    -webkit-flex-wrap:wrap;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
 }
 
 .profilePoints h4 {
@@ -496,6 +500,7 @@ nav a:hover img {
     border: 0;
 }
 
+
 /* ONLINE EDUCATION */
 
 .onlineWrap {
@@ -513,8 +518,80 @@ nav a:hover img {
     margin-top: 20px;
 }
 
+.saveWorkWrap {
+    height: 0px;
+    background-color: #f5f5f5;
+    padding: 0px;
+    overflow: hidden;
+    transition-duration: 0.3s;
+}
 
+.saveWorkWrap.active {
+    height: inherit;
+    padding: 20px;
+}
 
+.savedWorkWrap h2 {
+    margin: 20px 0 0px;
+}
+
+.saveWorkWrap a {
+    color: #F46002;
+    margin: 1px;
+    border-bottom: 2px #F46002 solid;
+    background-color: white;
+    padding: 10px;
+    border-radius: 2px;
+    transition-duration: 0.3s;
+}
+
+.saveWorkWrap a:hover {
+    color: #fff;
+    border-bottom: 2px grey solid;
+    background-color: green;
+}
+
+.workBtn {
+    background: 0;
+    border: 0;
+    border-bottom: 4px #F46002 solid;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+
+.workBtn:hover {
+    background-color: #f5f5f5;
+}
+
+.saveWorkBtn {
+    border: 0;
+    background-color: green;
+    border-radius: 50px;
+    padding: 5px 20px;
+    margin: 10px 0;
+    color: #fff;
+    transition-duration: 0.3s;
+}
+
+.saveWorkBtn:hover {
+    background-color: #F46002
+}
+
+#deleteNotice {
+    display: none;
+    padding: 150px 0;
+}
+
+.btn1.save {
+    margin: 10px 5px;
+    background-color: green;
+}
+
+.btn1.delete {
+margin: 10px 5px;
+    background-color: red;
+}
 
 
 
@@ -627,6 +704,7 @@ nav a:hover img {
 }
 
 
+
 /* EDIT QUIZ */
 
 .editQuestion span {
@@ -657,7 +735,7 @@ nav a:hover img {
     background-color: #b0f9b0;
 }
 
-.editQuizWrap h2 {    
+.editQuizWrap h2 {
     margin: 30px 0;
     font-family: 'Anton', serif;
     color: #F46002;
@@ -700,6 +778,7 @@ nav a:hover img {
 .saveQuiz:hover {
     background-color: green;
 }
+
 
 
 
@@ -877,20 +956,21 @@ nav a:hover img {
     padding: 5px 20px;
     cursor: pointer;
     border-radius: 0px;
-    transition-duration:0.5s;
+    transition-duration: 0.5s;
 }
 
 .quizFilter label:hover {
     border-radius: 50px;
 }
 
-.quizFilter input[type="radio"]:checked + label {
+.quizFilter input[type="radio"]:checked+label {
     background-color: green !important;
 }
 
 .quizFilter input {
     display: none;
 }
+
 
 /* SCHEDULE */
 
@@ -901,14 +981,14 @@ nav a:hover img {
     padding: 5px 20px;
     cursor: pointer;
     border-radius: 0px;
-    transition-duration:0.5s;
+    transition-duration: 0.5s;
 }
 
 .scheduleFilter label:hover {
     border-radius: 50px;
 }
 
-.scheduleFilter input[type="radio"]:checked + label {
+.scheduleFilter input[type="radio"]:checked+label {
     background-color: green !important;
 }
 
@@ -921,13 +1001,14 @@ nav a:hover img {
     padding-bottom: 50px;
 }
 
-.innerScheduleDay{
+.innerScheduleDay {
     margin-top: 20px;
     border-left: 4px #F46002 solid;
     margin-bottom: 20px;
     background-color: #f5f5f5;
     position: relative;
 }
+
 .innerScheduleDay h3 {
     padding: 10px;
     background-color: #fff;
@@ -961,12 +1042,13 @@ nav a:hover img {
     color: #F46002;
     right: 10px;
     bottom: -40px;
-    transition-duration:0.3s;
+    transition-duration: 0.3s;
 }
 
 .innerScheduleDay a:hover {
     transform: scale(1.1);
 }
+
 
 
 
@@ -1060,6 +1142,7 @@ nav a:hover img {
 
 
 
+
 /* CLASSES */
 
 .classSection {
@@ -1136,6 +1219,7 @@ nav a:hover img {
     color: orange;
     font-size: 20px;
 }
+
 
 
 
@@ -1248,6 +1332,7 @@ textarea:focus {
 
 
 
+
 /*Mailchimp*/
 
 #mc_embed_signup {
@@ -1280,6 +1365,7 @@ textarea:focus {
 
 
 
+
 /* THANK YOU */
 
 .thankYou {
@@ -1289,6 +1375,7 @@ textarea:focus {
     border-top: 4px #F46E30 solid;
     padding-top: 40px;
 }
+
 
 
 
@@ -1498,6 +1585,7 @@ textarea:focus {
 
 
 
+
 /* CLASS PAGE */
 
 .classPageWrapper {
@@ -1567,6 +1655,7 @@ textarea:focus {
 
 
 
+
 /* QUESTIONS */
 
 .question {
@@ -1589,6 +1678,7 @@ textarea:focus {
 .question p:nth-child(2) {
     padding: 0px 10px;
 }
+
 
 
 
@@ -1672,9 +1762,10 @@ textarea:focus {
     background: #E74B37;
 }
 
+
 /* ALERTIFY */
 
-.alertify.ajs-movable:not(.ajs-maximized) .ajs-header  {
+.alertify.ajs-movable:not(.ajs-maximized) .ajs-header {
     display: none !important;
 }
 

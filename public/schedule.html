@@ -1,0 +1,35 @@
+<div class="hero small"></div>
+<div class="scheduleWrap">
+    <div class="container innerSchedule">
+        <div class="row">
+            <div class="col-12 scheduleFilter" ng-init="day = 'Monday'">
+                <h2>Schedule</h2>
+                <p>Please pick your day to see what classes are on :)</p>
+                <input type="radio" name="day" value="Monday" id="op1" ng-model="day">
+                <label for="op1">Monday</label>
+                <input type="radio" name="day" value="Tuesday" id="op2" ng-model="day">
+                <label for="op2">Tuesday</label>
+                <input type="radio" name="day" value="Wednesday" id="op3" ng-model="day">
+                <label for="op3">Wednesday</label>
+                <input type="radio" name="day" value="Thursday" id="op4" ng-model="day">
+                <label for="op4">Thursday</label>
+                <input type="radio" name="day" value="Friday" id="op5" ng-model="day">
+                <label for="op5">Friday</label>
+                <input type="radio" name="day" value="Saturday" id="op6" ng-model="day">
+                <label for="op6">Saturday</label>
+                <input type="radio" name="day" value="Sunday" id="op7" ng-model="day">
+                <label for="op7">Sunday</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4" ng-repeat="class in classes" ng-show="class.day == day">
+                <div class="innerScheduleDay">
+                    <h3>{{class.name}}</h3>
+                    <h4>{{class.age}}yrs</h4>
+                    <h5>{{class.day}}: {{class.time}}</h5>
+                    <a href="#!/classPage" ng-click="pickClass(class)">INFO</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

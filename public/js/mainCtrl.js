@@ -18,8 +18,19 @@
                  // GET PROFILE
                  var getProfile = firebase.database().ref('users/' + user.uid);
                  getProfile = $firebaseObject(getProfile);
-                 getProfile.$bindTo($rootScope, "profile");
-                 console.log(getProfile)
+                 getProfile.$bindTo($rootScope, "profile").then(() => {
+
+                     if (!$rootScope.profile.points.total) {
+                         $rootScope.profile.points = {
+                             total: 0,
+                             HTML: 0,
+                             CSS: 0,
+                             JS: 0,
+                             JQ: 0,
+                             BootStrap: 0
+                         }
+                     };
+                 })
                  $window.location.href = '/#!/home'
              } else {
                  // No user is signed in.
@@ -30,12 +41,22 @@
 
          // LOG OUT
          $scope.logout = function() {
-             firebase.auth().signOut().then(function() {
-                 console.log('Logged out');
 
-             }).catch(function(error) {
-                 console.log('Couldnt log out!');
-             });
+
+             alertify.confirm("Would you like to log out?",
+                 function() {
+                     firebase.auth().signOut().then(function() {
+                         console.log('Logged out');
+
+                     }).catch(function(error) {
+                         alertify.error('Could log out!');
+                         console.log(error)
+                     });
+                 },
+                 function() {
+                     alertify.error('Cancelled');
+                 });
+
          };
 
 
@@ -69,20 +90,27 @@
 
          $scope.updateClass = function(info) {
 
-             firebase.database().ref('class/' + info.id).set({
-                 name: info.name,
-                 subtitle: info.subtitle,
-                 type: info.type,
-                 img: info.img,
-                 id: info.id,
-                 age: info.age,
-                 price: info.price,
-                 body: info.body,
-                 outcome: info.outcome,
-                 bring: info.bring,
-                 day: info.day,
-                 time: info.time,
-             });
+             try {
+                 firebase.database().ref('class/' + info.id).set({
+                     name: info.name,
+                     subtitle: info.subtitle,
+                     type: info.type,
+                     img: info.img,
+                     id: info.id,
+                     age: info.age,
+                     price: info.price,
+                     body: info.body,
+                     outcome: info.outcome,
+                     bring: info.bring,
+                     day: info.day,
+                     time: info.time,
+                 });
+                 alertify.success('Success: updated');
+
+             } catch (err) {
+                 alertify.error('Error: ' + err);
+             }
+
          }
 
 

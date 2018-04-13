@@ -33,7 +33,15 @@
                      name: studentInfo.parent.name,
                      email: studentInfo.parent.email,
                      phone: studentInfo.parent.phone,
-                     points: 0
+
+                 },
+                 points: {
+                     total: 0,
+                     HTML: 0,
+                     CSS: 0,
+                     JS: 0,
+                     JQ: 0,
+                     Bootstrap: 0
                  }
              }).then(() => {
                  // GET PROFILE
@@ -41,9 +49,10 @@
                  getProfile = $firebaseObject(getProfile);
                  getProfile.$bindTo($rootScope, "profile");
                  console.log(getProfile)
-
-             }).catch(() => {
-
+                 alertify.success('Success: Profile Created');
+             }).catch((error) => {
+                 alertify.error('Error in making profile.');
+                 console.log(error)
              })
 
          };
@@ -107,12 +116,21 @@
 
              if (result.percent > 85) {
 
-                 // GET QUIZES 
-                 var getPoints = firebase.database().ref('users/' + user.uid + '/points').once('value').then(function(snapshot) {
+                 // GET POINTS 
+                 var getPoints = firebase.database().ref('users/' + user.uid + '/points/total').once('value').then(function(snapshot) {
                      var userPoints = snapshot.val();
-                     firebase.database().ref('users/' + user.uid + '/points/').set(userPoints + 20);
+                     firebase.database().ref('users/' + user.uid + '/points/total').set(userPoints + 20);
                  });
 
+                 // GET SPECIFIC POINTS 
+                 var getSPoints = firebase.database().ref('users/' + user.uid + '/points/' + quizID.type).once('value').then(function(snapshot) {
+                     var userSPoints = snapshot.val();
+                     firebase.database().ref('users/' + user.uid + '/points/' + quizID.type).set(userSPoints + 20);
+                 });
+                 alertify.success('Well done! Points added!');
+
+             } else {
+                 alertify.error('Better luck next time!');
              }
 
          }
@@ -122,6 +140,59 @@
          var getLinks = firebase.database().ref('useful/');
          getLinks = $firebaseObject(getLinks);
          getLinks.$bindTo($scope, "links")
+
+         // GET SAVED WORKS
+         var getWork = firebase.database().ref('users/' + user.uid + '/work/');
+         getWork = $firebaseObject(getWork);
+         getWork.$bindTo($scope, "works")
+
+         $scope.chosenWork = function(info) {
+             $rootScope.chosenWork = info;
+         }
+
+
+         // SAVE TEXT EDITOR 
+         $scope.saveWork = function() {
+             var workHTML = document.getElementById('iframeWindow').contentWindow.getHTML();
+             var workCSS = document.getElementById('iframeWindow').contentWindow.getCSS();
+             var workName;
+
+
+             if (workHTML == "" || workCSS == "") {
+                 alertify.error('Both HTML and CSS need code!');
+             } else {
+                 alertify.prompt("Do you want to save your work?", "Super Cool Work #1",
+                     function(evt, value) {
+                         // Get a key for a new Post.
+                         var newPostKey = firebase.database().ref().child('users/' + user.uid + "/work/").push().key;
+
+                         firebase.database().ref('users/' + user.uid + "/work/" + newPostKey).set({
+                             name: value,
+                             html: workHTML,
+                             css: workCSS,
+                             id: newPostKey
+                         });
+                         alertify.success('Saved: ' + value);
+
+
+                         $rootScope.chosenWork = {
+                             name: value,
+                             html: workHTML,
+                             css: workCSS,
+                             id: newPostKey
+                         };
+                         $location.path('savedWork');
+                     },
+                     function() {
+                         alertify.error('Cancelled');
+                     });
+
+             };
+
+
+
+
+         }
 
 
 

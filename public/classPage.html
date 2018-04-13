@@ -1,7 +1,7 @@
 <div class="hero small">
 </div>
 <div class="classPageWrapper">
-    <div class="classPageInner container">
+    <div class="classPageInner container" ng-init="$parent.edit = false">
         <div class="row">
             <div class="col-12 col-md-4 classPageBox">
                 <h2 ng-show="!edit">{{chosenClass.name}}</h2>
@@ -10,7 +10,7 @@
                 <input type="text" name="" ng-model="chosenClass.subtitle" ng-show="edit">
                 <p ng-show="!edit">{{chosenClass.body}}</p>
                 <textarea ng-model="chosenClass.body" placeholder="Description" ng-show="edit"></textarea>
-                <button class="submitBtn" ng-click="updateClass(chosenClass);edit = !edit" ng-show="edit">Update</button>
+                <button class="submitBtn" ng-click="updateClass(chosenClass);edit = false" ng-show="edit">Update</button>
             </div>
             <div class="col-12 col-md-4 classPageBox wImage" style="background-image: url({{chosenClass.img}});"></div>
             <div class="col-12 col-md-4 classPageBox">
@@ -25,12 +25,13 @@
             </div>
             <div class="col-12 col-md-4 classPageBox wImage" style="background-image: url(/images/bck1.jpg);"></div>
             <div class="col-12 col-md-4 classPageBox">
-                <p class="edit" ng-click="edit = !edit" ng-init="!edit" ng-show="!edit" ng-if="profile.role == 'admin'">edit</p>
+                <p class="edit" ng-click="$parent.edit = true"  ng-show="!edit" ng-if="profile.role == 'admin'">edit</p>
                 <h3>Price</h3>
                 <h4 ng-show="!edit">${{chosenClass.price}}/per class</h4>
                 <input type="text" name="" ng-model="chosenClass.price" ng-show="edit">
                 <p>When you sign up for the term, you get an autmatic 10% discount.</p>
                 <h3 ng-show="!edit">{{chosenClass.day}} at {{chosenClass.time}}</h3>
+                <h3 ng-show="!edit">{{chosenClass.age}}yrs old.</h3>
                 <input type="text" name="" ng-model="chosenClass.day" ng-show="edit">
                 <input type="text" name="" ng-model="chosenClass.time" ng-show="edit">
             </div>

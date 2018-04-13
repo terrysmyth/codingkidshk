@@ -22,6 +22,7 @@ body {
 
 * {
     font-family: 'Abel', sans-serif;
+    color: #585858;
 }
 
 a,
@@ -88,6 +89,7 @@ h3 {
 
 
 
+
 /* FOOTER */
 
 footer {
@@ -111,6 +113,7 @@ footer {
 .footerTerms {
     color: #F46E30;
 }
+
 
 
 
@@ -222,6 +225,7 @@ nav a:hover img {
 
 
 
+
 /* HERO */
 
 .hero {
@@ -301,6 +305,7 @@ nav a:hover img {
 
 
 
+
 /* PROFILE PAGE */
 
 .profileForm {
@@ -366,6 +371,7 @@ nav a:hover img {
 .profileNav p {
     transition-duration: 0.3s;
     cursor: pointer;
+    color: #fff;
 }
 
 .profileNav p:hover {
@@ -429,6 +435,33 @@ nav a:hover img {
     right: 10px;
 }
 
+.profilePoints {
+    border-top: 1px rgba(0, 0, 0, 0.1) solid;
+    padding: 10px;
+    background-color: #f5f5f5;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: start;
+    -webkit-justify-content: start;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+}
+
+.profilePoints h4 {
+    width: 100%;
+}
+
+.profilePoints p {
+    margin: 0;
+    min-width: 120px;
+}
+
+.profilePoints p span {
+    color: green;
+    font-family: 'Anton';
+    letter-spacing: 1px;
+}
+
 .usefulWrap {
     background-color: #f5f5f5;
     padding: 10px;
@@ -468,9 +501,97 @@ nav a:hover img {
 }
 
 
+/* ONLINE EDUCATION */
 
+.onlineWrap {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
 
+.innerOnline {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #f5f5f5;
+}
 
+.innerInner {
+    margin-top: 20px;
+}
+
+.saveWorkWrap {
+    height: 0px;
+    background-color: #f5f5f5;
+    padding: 0px;
+    overflow: hidden;
+    transition-duration: 0.3s;
+}
+
+.saveWorkWrap.active {
+    height: inherit;
+    padding: 20px;
+}
+
+.savedWorkWrap h2 {
+    margin: 20px 0 0px;
+}
+
+.saveWorkWrap a {
+    color: #F46002;
+    margin: 1px;
+    border-bottom: 2px #F46002 solid;
+    background-color: white;
+    padding: 10px;
+    border-radius: 2px;
+    transition-duration: 0.3s;
+}
+
+.saveWorkWrap a:hover {
+    color: #fff;
+    border-bottom: 2px grey solid;
+    background-color: green;
+}
+
+.workBtn {
+    background: 0;
+    border: 0;
+    border-bottom: 4px #F46002 solid;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+
+.workBtn:hover {
+    background-color: #f5f5f5;
+}
+
+.saveWorkBtn {
+    border: 0;
+    background-color: green;
+    border-radius: 50px;
+    padding: 5px 20px;
+    margin: 10px 0;
+    color: #fff;
+    transition-duration: 0.3s;
+}
+
+.saveWorkBtn:hover {
+    background-color: #F46002
+}
+
+#deleteNotice {
+    display: none;
+    padding: 150px 0;
+}
+
+.btn1.save {
+    margin: 10px 5px;
+    background-color: green;
+}
+
+.btn1.delete {
+margin: 10px 5px;
+    background-color: red;
+}
 
 
 
@@ -583,6 +704,7 @@ nav a:hover img {
 }
 
 
+
 /* EDIT QUIZ */
 
 .editQuestion span {
@@ -613,7 +735,7 @@ nav a:hover img {
     background-color: #b0f9b0;
 }
 
-.editQuizWrap h2 {    
+.editQuizWrap h2 {
     margin: 30px 0;
     font-family: 'Anton', serif;
     color: #F46002;
@@ -656,6 +778,7 @@ nav a:hover img {
 .saveQuiz:hover {
     background-color: green;
 }
+
 
 
 
@@ -833,14 +956,14 @@ nav a:hover img {
     padding: 5px 20px;
     cursor: pointer;
     border-radius: 0px;
-    transition-duration:0.5s;
+    transition-duration: 0.5s;
 }
 
 .quizFilter label:hover {
     border-radius: 50px;
 }
 
-.quizFilter input[type="radio"]:checked + label {
+.quizFilter input[type="radio"]:checked+label {
     background-color: green !important;
 }
 
@@ -849,6 +972,82 @@ nav a:hover img {
 }
 
 
+/* SCHEDULE */
+
+.scheduleFilter label {
+    border: 1px #fff solid;
+    background-color: #585858;
+    color: #fff;
+    padding: 5px 20px;
+    cursor: pointer;
+    border-radius: 0px;
+    transition-duration: 0.5s;
+}
+
+.scheduleFilter label:hover {
+    border-radius: 50px;
+}
+
+.scheduleFilter input[type="radio"]:checked+label {
+    background-color: green !important;
+}
+
+.scheduleFilter input {
+    display: none;
+}
+
+.scheduleWrap {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.innerScheduleDay {
+    margin-top: 20px;
+    border-left: 4px #F46002 solid;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    position: relative;
+}
+
+.innerScheduleDay h3 {
+    padding: 10px;
+    background-color: #fff;
+    margin: 0;
+}
+
+.innerScheduleDay h4 {
+    padding: 10px;
+    margin: 0;
+    color: #fff;
+    background-color: #304d5b;
+}
+
+.innerScheduleDay h5 {
+    margin: 0;
+    padding: 10px;
+    color: #fff;
+    background-color: #F46002;
+    font-size: 22px;
+}
+
+.innerScheduleDay a {
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    background-color: #fff;
+    border: 4px #F46002 solid;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 23px;
+    color: #F46002;
+    right: 10px;
+    bottom: -40px;
+    transition-duration: 0.3s;
+}
+
+.innerScheduleDay a:hover {
+    transform: scale(1.1);
+}
 
 
 
@@ -945,6 +1144,7 @@ nav a:hover img {
 
 
 
+
 /* CLASSES */
 
 .classSection {
@@ -1010,6 +1210,7 @@ nav a:hover img {
     background-color: green;
 }
 
+<<<<<<< HEAD
 .termWrap {
     display: flex;
     display: -webkit-flex;
@@ -1022,6 +1223,18 @@ nav a:hover img {
     background-color: #304d5b;
     color: #fff;
     padding: 20px;
+=======
+.classBox {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.classDay {
+    display: inline-block;
+    float: right;
+    color: orange;
+    font-size: 20px;
+>>>>>>> 958246d57e0429264030cf05ae428fa09b73eda1
 }
 
 .termWrap p {
@@ -1142,6 +1355,7 @@ textarea:focus {
 
 
 
+
 /*Mailchimp*/
 
 #mc_embed_signup {
@@ -1174,6 +1388,7 @@ textarea:focus {
 
 
 
+
 /* THANK YOU */
 
 .thankYou {
@@ -1183,6 +1398,7 @@ textarea:focus {
     border-top: 4px #F46E30 solid;
     padding-top: 40px;
 }
+
 
 
 
@@ -1392,6 +1608,7 @@ textarea:focus {
 
 
 
+
 /* CLASS PAGE */
 
 .classPageWrapper {
@@ -1461,6 +1678,7 @@ textarea:focus {
 
 
 
+
 /* QUESTIONS */
 
 .question {
@@ -1483,6 +1701,7 @@ textarea:focus {
 .question p:nth-child(2) {
     padding: 0px 10px;
 }
+
 
 
 
@@ -1566,6 +1785,12 @@ textarea:focus {
     background: #E74B37;
 }
 
+
+/* ALERTIFY */
+
+.alertify.ajs-movable:not(.ajs-maximized) .ajs-header {
+    display: none !important;
+}
 
 @media (max-width: 1200px) {
     .quizResultLine .middle {

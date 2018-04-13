@@ -28,7 +28,15 @@
             <div class="col-1"></div>
             <!-- PROFILE -->
             <div ng-show="profilePage == 'p1'" class="profileBox p1 col-12 col-md-7">
-                <h3>{{user.displayName}} <span ng-show="profile.points">points:{{profile.points}}{{points}}</span></h3>
+                <h3>{{user.displayName}}</h3>
+                <div class="profilePoints" ng-show="profile.points.total">
+                    <h4 ng-show="profile.points.total"><span>POINTS:</span> {{profile.points.total}}</h4>
+                    <p ng-show="profile.points.HTML"><span>HTML:</span> {{profile.points.HTML}}</p>
+                    <p ng-show="profile.points.CSS"><span>CSS:</span> {{profile.points.CSS}}</p>
+                    <p ng-show="profile.points.JS"><span>JS:</span> {{profile.points.JS}}</p>
+                    <p ng-show="profile.points.JQ"><span>JQ:</span> {{profile.points.JQ}}</p>
+                    <p ng-show="profile.points.Bootstrap"><span>Bootstrap:</span> {{profile.points.Bootstrap}}</p>
+                </div>
                 <div class="profileUserInfo">
                     <div class="profileUserInner" ng-init="edit = false">
                         <h4>YOU:</h4>
@@ -121,8 +129,14 @@
             <!-- ONLINE CODING -->
             <div ng-show="profilePage == 'p7'" class="profileBox p2 col-12 col-md-7">
                 <h3>Online Coding:</h3>
-                <div class="" ng-show="profile.student">
-                    <iframe src="/directives/texteditor.html" class="iframeWindow" width="100%"></iframe>
+                <div class="" ng-show="profile.student" ng-init="viewSaved = false;">
+                    <button class="workBtn" ng-click="viewSaved = true" ng-show="viewSaved == false">View Saved Work:</button>
+                    <button class="workBtn" ng-click="viewSaved = false" ng-show="viewSaved == true">Hide Saved Work:</button>
+                    <div class="saveWorkWrap" ng-class="{active: viewSaved}">
+                        <a href="#!/savedWork" ng-repeat="work in works" ng-click="chosenWork(work)">{{work.name}}</a>
+                    </div>
+                    <button class="saveWorkBtn" ng-click="saveWork()">save</button>
+                    <iframe src="/directives/texteditor.html" class="iframeWindow" id="iframeWindow" width="100%"></iframe>
                 </div>
                 <p ng-show="!profile.student">Sorry you havent been verified as a student yet. This material is not available until then. Thanks.</p>
             </div>

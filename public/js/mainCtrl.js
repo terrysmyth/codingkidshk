@@ -14,7 +14,6 @@
              if (user) {
                  // User is signed in.
                  $rootScope.user = user;
-                 console.log(user)
                  // GET PROFILE
                  var getProfile = firebase.database().ref('users/' + user.uid);
                  getProfile = $firebaseObject(getProfile);

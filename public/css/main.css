@@ -106,7 +106,8 @@ footer {
     flex-direction: column;
 }
 
-.footerNav a {
+.footerNav a,
+.footer p {
     color: #fff;
 }
 
@@ -295,7 +296,22 @@ nav a:hover img {
     border: 2px white solid;
 }
 
+.heroSignup {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: green;
+    padding: 10px 25px;
+    font-size: 20px;
+    border-radius: 50px;
+    transition-duration: 0.3s;
+}
 
+.heroSignup:hover {
+    transform: scale(1.1);
+    background-color: #F46002;
+    color: #fff;
+}
 
 
 
@@ -496,8 +512,9 @@ nav a:hover img {
 }
 
 .iframeWindow {
-    height: 650px;
+    height: 700px;
     border: 0;
+    overflow: auto;
 }
 
 
@@ -1210,7 +1227,7 @@ margin: 10px 5px;
     background-color: green;
 }
 
-<<<<<<< HEAD
+
 .termWrap {
     display: flex;
     display: -webkit-flex;
@@ -1220,10 +1237,11 @@ margin: 10px 5px;
     -webkit-justify-content: space-around;
     align-items: center;
     -webkit-align-items: center;
-    background-color: #304d5b;
+    background-color: #2f2f2f;
     color: #fff;
     padding: 20px;
-=======
+}
+
 .classBox {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -1234,11 +1252,11 @@ margin: 10px 5px;
     float: right;
     color: orange;
     font-size: 20px;
->>>>>>> 958246d57e0429264030cf05ae428fa09b73eda1
 }
 
 .termWrap p {
     max-width: 70%;
+    color: #fff;
 }
 
 .termWrap span {
@@ -1271,6 +1289,15 @@ margin: 10px 5px;
     margin: 0;
     width: 100%;
     margin-bottom: 10px;
+}
+
+.contactForm select {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px;
+    padding: 10px 0;
+    border: 0;
+    background-color: #f5f5f5;
 }
 
 .contactForm input,
@@ -1671,6 +1698,7 @@ textarea:focus {
 
 .discounts h3 span {
     font-family: 'Abel', serif;
+    color: #fff;
 }
 
 

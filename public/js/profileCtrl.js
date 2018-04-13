@@ -48,7 +48,6 @@
                  var getProfile = firebase.database().ref('users/' + user.uid);
                  getProfile = $firebaseObject(getProfile);
                  getProfile.$bindTo($rootScope, "profile");
-                 console.log(getProfile)
                  alertify.success('Success: Profile Created');
              }).catch((error) => {
                  alertify.error('Error in making profile.');

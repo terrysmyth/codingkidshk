@@ -2,20 +2,22 @@
 <div class="signupWrap container">
 	 <!-- CONTACT US -->
     <div class="contactWrap columnCenter">
-        <form class="contactForm columnCenter" action="????" method="POST" id="mG61Hd" target="hidden_iframe1" onsubmit="newCompany1=true;">
+        <form class="contactForm columnCenter" action="https://docs.google.com/forms/u/2/d/e/1FAIpQLSdA8zMAvOMwemthRqBfc_zwy0XbCD2AQvN00areogI1MCqHFQ/formResponse" method="POST" id="mG61Hd" target="hidden_iframe1" onsubmit="newCompany1=true;">
             <h3>Sign up</h3>
             <label>Parent Info</label>
-            <input type="text" name="" placeholder="First name" required>
-            <input type="text" name="" placeholder="Family name" required>
-            <input type="email" name="" placeholder="Email" required>
+            <input type="text" name="entry.397252139" placeholder="First name" required>
+            <input type="text" name="entry.599252846" placeholder="Family name" required>
+            <input type="email" name="entry.547039644" placeholder="Email" required>
             <input type="number" name="" placeholder="Phone number" required>
             <label>Student/s Info</label>
-            <input type="text" name="" placeholder="Name/s" required>
-            <select>
-            	<option ng-repeat="class in classes">{{class.name}}: {{class.day}}</option>
+            <input type="text" name="entry.1671584947" placeholder="Name/s" required>
+            <input type="number" name="entry.357008028" placeholder="Age" required>
+            <select ng-model="className" required>
+            	<option ng-repeat="class in classes" value="{{class.name}}: {{class.day}}">{{class.name}}: {{class.day}}</option>
             </select>
+            <input type="text" ng-model="className" name="entry.27307420" style="display: none;">
             <textarea name="" placeholder="Medical or other notes:"></textarea>
-            <input type="submit" name="" value="Register">
+            <input type="submit" name="entry.1644901907" value="Register">
         </form>
     </div>
 </div>

@@ -38,8 +38,6 @@
          getStudents.$bindTo($scope, "students");
 
          $scope.getStudent = function(info, key) {
-             console.log(info)
-             console.log(key)
 
              $rootScope.chosenStudent = info;
              $rootScope.chosenStudent.key = key;
@@ -71,8 +69,6 @@
                          link: quiz.link
                      });
 
-                     console.log(quiz)
-                     console.log(questions)
 
                      $scope.questions = null;
                      $scope.quiz = null;

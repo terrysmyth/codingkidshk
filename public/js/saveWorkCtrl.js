@@ -22,8 +22,6 @@
          $scope.saveWork = function() {
              var workHTML = innerIframe.getElementById("textHTML").value;
              var workCSS = innerIframe.getElementById("textCSS").value;
-             console.log(workHTML)
-             console.log(workCSS)
 
              if (workHTML == "" || workCSS == "") {
                  alertify.error('Both HTML and CSS need code!');

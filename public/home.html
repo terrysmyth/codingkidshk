@@ -13,6 +13,7 @@
         <a href="#!/profile">
             <div ng-if="user" class="heroProfile" ng-show="user.photoURL" style="background-image:url({{user.photoURL}})"></div>
         </a>
+        <a href="#!/signup" class="heroSignup">Sign Up</a>
     </div>
     <div class="location">
         Location: {{general.location}}
@@ -117,4 +118,4 @@
 <script type="text/javascript">
 var newCompany = false;
 </script>
-<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(newCompany) {window.location='#!/thank-you';$(window).scrollTop(0)}"></iframe>
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(newCompany) {window.location='#!/thank-you'}"></iframe>

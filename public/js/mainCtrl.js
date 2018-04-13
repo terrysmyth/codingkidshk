@@ -57,6 +57,11 @@
          getClass = $firebaseObject(getClass);
          getClass.$bindTo($scope, "classes");
 
+          // GET CLASSES
+         var getTerm = firebase.database().ref('term');
+         getTerm = $firebaseObject(getTerm);
+         getTerm.$bindTo($scope, "term");
+
          // Set chosen class
          $scope.pickClass = function(info) {
              $rootScope.chosenClass = info;

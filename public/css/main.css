@@ -902,6 +902,8 @@ nav a:hover img {
     color: #fff;
     color: #fff;
     padding: 10px;
+    text-align: center;
+    font-size: 24px;
 }
 
 .majorSection {
@@ -1008,8 +1010,27 @@ nav a:hover img {
     background-color: green;
 }
 
+.termWrap {
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+    align-items: center;
+    -webkit-align-items: center;
+    background-color: #304d5b;
+    color: #fff;
+    padding: 20px;
+}
 
+.termWrap p {
+    max-width: 70%;
+}
 
+.termWrap span {
+    color: #F46002;
+}
 
 
 

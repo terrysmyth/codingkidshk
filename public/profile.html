@@ -133,9 +133,12 @@
                     <button class="workBtn" ng-click="viewSaved = true" ng-show="viewSaved == false">View Saved Work:</button>
                     <button class="workBtn" ng-click="viewSaved = false" ng-show="viewSaved == true">Hide Saved Work:</button>
                     <div class="saveWorkWrap" ng-class="{active: viewSaved}">
+                        <p>*Maximum of 5 saved sandboxes.</p>
                         <a href="#!/savedWork" ng-repeat="work in works" ng-click="chosenWork(work)">{{work.name}}</a>
                     </div>
-                    <button class="saveWorkBtn" ng-click="saveWork()">save</button>
+                    <button class="saveWorkBtn" ng-click="saveWork()" ng-show="!workLimit">save</button>
+                    <button class="saveWorkBtn void" ng-show="workLimit">save</button>
+                    <p ng-show="workLimit">Limit reached on saved works. Recommend deleting projects to make room.</p>
                     <iframe src="/directives/texteditor.html" class="iframeWindow" id="iframeWindow" width="100%"></iframe>
                 </div>
                 <p ng-show="!profile.student">Sorry you havent been verified as a student yet. This material is not available until then. Thanks.</p>

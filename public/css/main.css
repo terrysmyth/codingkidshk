@@ -591,8 +591,18 @@ nav a:hover img {
     transition-duration: 0.3s;
 }
 
+.saveWorkBtn.void {
+    background-color: grey;
+    color: #fff;
+}
+
 .saveWorkBtn:hover {
     background-color: #F46002
+}
+
+.saveWorkBtn.void:hover {
+    background-color: grey;
+    color: #fff;
 }
 
 #deleteNotice {

@@ -1,7 +1,7 @@
  "use strict";
 
  angular.module("myApp")
-     .controller('profileCtrl', function($rootScope, $scope, $location, $firebaseObject, $window, $sce) {
+     .controller('profileCtrl', function($rootScope, $scope, $location, $firebaseObject,$firebaseArray, $window, $sce) {
 
 
          // Current User *********************************************************************
@@ -142,8 +142,21 @@
 
          // GET SAVED WORKS
          var getWork = firebase.database().ref('users/' + user.uid + '/work/');
+         var getWorkArray = $firebaseArray(getWork);
          getWork = $firebaseObject(getWork);
-         getWork.$bindTo($scope, "works")
+
+         getWork.$bindTo($scope, "works").then(() => {
+
+            if (getWorkArray.length >= 5 ) {
+                console.log('limit reached')
+                $scope.workLimit = true;
+            } else {
+                $scope.workLimit = false;
+            }
+
+         })
+
+
 
          $scope.chosenWork = function(info) {
              $rootScope.chosenWork = info;

@@ -1,0 +1,64 @@
+<div class="campsInfo">
+    <p class="edit" ng-click="edit10 = !edit10" ng-init="!edit10" ng-show="!edit10">edit</p>
+    <p class="edit" ng-click="edit10 = !edit10" ng-init="!edit10" ng-show="edit10">save</p>
+    <h3>Info</h3>
+    <label>
+        <em>Dates</em>
+        <p>Week1:</p>
+        <span ng-show="!edit10">{{camps.info.week1}}</span>
+        <input type="text" name="" ng-model="camps.info.week1" placeholder="{{camps.info.week1}}" ng-show="edit10">
+        <p>Week2:</p>
+        <span ng-show="!edit10">{{camps.info.week2}}</span>
+        <input type="text" name="" ng-model="camps.info.week2" placeholder="{{camps.info.week2}}" ng-show="edit10">
+    </label>
+    <label>
+        <em>Early-Bird</em>
+        <span ng-show="!edit10">{{camps.info.early}}</span>
+        <input type="text" name="" ng-model="camps.info.early" placeholder="{{camps.info.early}}" ng-show="edit10">
+    </label>
+    
+</div>
+<h3>New Camp</h3>
+<label>
+    <em>Title</em>
+    <input type="text" name="" ng-model="camp.name" placeholder="Camp Title">
+</label>
+<label>
+    <em>Subtitle</em>
+    <input type="text" name="" ng-model="camp.subtitle" placeholder="Camp Subtitle">
+</label>
+<label>
+    <em>Image</em>
+    <input type="text" name="" ng-model="camp.img" placeholder="/images/something.jpg">
+</label>
+<label>
+    <em>Age</em>
+    <input type="text" name="" ng-model="camp.age" placeholder="6-8">
+</label>
+<label>
+    <em>Week</em>
+    <select ng-model="camp.week">
+        <option value="1">Week 1</option>
+        <option value="2">Week 2</option>
+    </select>
+</label>
+<label>
+    <em>Time</em>
+    <select ng-model="camp.time">
+        <option value="morning">Morning</option>
+        <option value="afternoon">Afternoon</option>
+    </select>
+</label>
+<label>
+    <em>Info</em>
+    <textarea ng-model="camp.body"></textarea>
+</label>
+<label>
+    <em>To Bring</em>
+    <textarea ng-model="camp.bring"></textarea>
+</label>
+<label>
+    <em>Price</em>
+    <input type="text" name="" ng-model="camp.price" placeholder="$10000">
+</label>
+<button class="submitBtn" ng-show="camp.name && camp.img && camp.age && camp.week && camp.time && camp.body && camp.bring && camp.price" ng-click="createCamp(camp)">Create</button>

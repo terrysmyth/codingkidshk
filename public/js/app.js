@@ -9,6 +9,13 @@ app.directive('navbar', function() {
     }
 });
 
+app.directive('camp', function() {
+    return {
+        restrict: 'E',
+        templateUrl: 'directives/camp.html'
+    }
+});
+
 app.directive('quiz', function() {
     return {
         restrict: 'E',
@@ -44,6 +51,12 @@ app.directive('class', function() {
     }
 });
 
+app.directive('campsignup', function() {
+    return {
+        restrict: 'E',
+        templateUrl: 'directives/campsignup.html'
+    }
+});
 
 
 
@@ -90,6 +103,9 @@ app.config(function($routeProvider) {
         })
         .when("/editQuiz", {
             templateUrl: "editQuiz.html",
+        })
+        .when("/camps", {
+            templateUrl: "camps.html",
         })
         .otherwise({
             redirectTo: '/home'

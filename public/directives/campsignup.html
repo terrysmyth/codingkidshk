@@ -1,0 +1,25 @@
+<form action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSclG0_uZIwADmAcBl8UYhXNJGZvmm5iJhvS4Z8gk5iMOGYjrg/formResponse" method="POST" class="campForm" target="hidden_iframe" onsubmit="newCompany=true; modalOff();">
+	<label>Parent:</label>
+	<input type="text" name="entry.132932769" placeholder="Name:" required>
+	<input type="number" name="entry.233887540" placeholder="Phone number:" required>
+	<input type="email" name="entry.861368353" placeholder="Email:" required>
+
+	<label>Child/ren</label>
+	<input type="number" name="entry.1797043675" placeholder="Number of kids:" required>
+	<input type="text" name="entry.1057462245" placeholder="Name/s: serparate with comma" required>
+	<input type="text" name="entry.467524706" placeholder="Age/s:" required>
+	<label>Week:</label>
+	<select name="entry.1774098434" required>
+		<option value="week 1">Week 1</option>
+		<option value="week 2">Week 2</option>
+	</select>
+	<label>Select camp</label>
+	<select name="entry.1372311085" required>
+		<option selected disabled>Choose</option>
+		<option ng-repeat="camp in camps.camps" value="{{camp.name}}">{{camp.name}}</option>
+	</select>
+	<label>Note/medical details:</label>
+	<textarea name="entry.989879125"></textarea>
+	<input class="submitBtn" type="submit" name="" value="Sign Up">
+
+</form>

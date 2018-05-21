@@ -108,8 +108,8 @@
                  });
                  alertify.success('Link Added');
              } catch (err) {
-                alertify.error('Failed to add link');
-                console.log(err)
+                 alertify.error('Failed to add link');
+                 console.log(err)
              }
 
 
@@ -143,6 +143,43 @@
          var getTerm = firebase.database().ref('term');
          getTerm = $firebaseObject(getTerm);
          getTerm.$bindTo($scope, "term");
+
+
+         $scope.createCamp = function(info) {
+
+             try {
+
+
+                 // Get a key for a new Post.
+                 var newPostKey = firebase.database().ref().child('camps/camps').push().key;
+
+                 firebase.database().ref('camps/camps/' + newPostKey).set({
+                     name: info.name,
+                     subtitle: info.subtitle,
+                     week: info.week,
+                     img: info.img,
+                     id: newPostKey,
+                     age: info.age,
+                     price: info.price,
+                     body: info.body,
+                     bring: info.bring,
+                     time: info.time,
+                 });
+                 alertify.success('Camp Created');
+                 $scope.camp = null;
+             } catch (err) {
+
+                 alertify.error('Failed to create camp: check console');
+                 console.log(err);
+
+             }
+
+         }
+
+         // GET CAMPS
+         var getCamps = firebase.database().ref('camps');
+         getCamps = $firebaseObject(getCamps);
+         getCamps.$bindTo($scope, "camps");
 
 
 

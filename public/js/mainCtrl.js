@@ -77,7 +77,7 @@
          getClass = $firebaseObject(getClass);
          getClass.$bindTo($scope, "classes");
 
-          // GET CLASSES
+         // GET CLASSES
          var getTerm = firebase.database().ref('term');
          getTerm = $firebaseObject(getTerm);
          getTerm.$bindTo($scope, "term");
@@ -111,6 +111,11 @@
              }
 
          }
+
+         // GET CAMPS
+         var getCamps = firebase.database().ref('camps');
+         getCamps = $firebaseObject(getCamps);
+         getCamps.$bindTo($scope, "camps");
 
 
      })

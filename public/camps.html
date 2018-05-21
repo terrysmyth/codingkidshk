@@ -1,0 +1,82 @@
+<div class="hero small">
+</div>
+<div class="campsWrapper" ng-init="editCamp = false">
+    <div class="container campsInnerWrapper">
+        <h2>Upcoming Camps</h2>
+        <div class="campTimeInfo">
+            <h4>Early-Bird Special:</h4>
+            <p>Sign up before the {{camps.info.early}} to receive a 15% discount off camp!</p>
+            <p><strong>Week 1: </strong>{{camps.info.week1}}</p>
+            <p><strong>Week 2: </strong>{{camps.info.week2}}</p>
+        </div>
+        <div class="campsInfoWrapper row">
+            <!-- Repeat this div -->
+            <div class="col-12 col-md-6" ng-repeat="camp in camps.camps">
+                <div class="campWrap">
+                    <p class="campEditBtn" ng-click="editCamp = true" ng-show="profile.role == 'admin' && !editCamp">Edit</p>
+                    <p class="campEditBtn" ng-click="editCamp = false" ng-show="profile.role == 'admin' && editCamp">Done</p>
+                    <div class="campWeek">Week {{camp.week}}</div>
+                    <input type="text" ng-model="camp.week" ng-show="editCamp">
+                    <h3 ng-show="!editCamp">{{camp.name}}</h3>
+                    <input type="text" ng-model="camp.name" ng-show="editCamp">
+                    <h4 ng-show="!editCamp">{{camp.subtitle}}</h4>
+                    <input type="text" ng-model="camp.subtitle" ng-show="editCamp">
+                    <h6 ng-show="!editCamp"><strong>Age:</strong> {{camp.age}}yrs-old</h6>
+                    <input type="text" ng-model="camp.age" ng-show="editCamp">
+                    <div class="info">
+                        <div class="campImg" style="background-image:url({{camp.img}})"></div>
+                        <div>
+                            <h5>Info:</h5>
+                            <p ng-show="!editCamp">{{camp.body}}</p>
+                            <textarea ng-model="camp.body" ng-show="editCamp"></textarea>
+                            <h5>To bring:</h5>
+                            <p ng-show="!editCamp">{{camp.bring}}</p>
+                            <textarea ng-model="camp.bring" ng-show="editCamp"></textarea>
+                        </div>
+                    </div>
+                    <h6><strong>Time:</strong> <span ng-if="camp.time == 'afternoon'">14:00-17:00</span><span ng-if="camp.time == 'morning'">10:00-13:00</span> | 3hrs</h6>
+                    <select ng-model="camp.time" ng-show="editCamp">
+                        <option value="morning">Morning</option>
+                        <option value="afternoon">Afternoon</option>
+                    </select>
+                    <h6><strong>Price: {{camp.price}}</strong></h6>
+                    <input type="text" ng-model="camp.price" ng-show="editCamp">
+                    <button type="button" class="submitBtn" data-toggle="modal" data-target="#exampleModal">
+                        Sign Up
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Camp Sign Up</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h3>Fill in this form for upcoming camps!</h3>
+                <campsignup></campsignup>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+var newCompany = false;
+
+function modalOff() {
+    var overlay = document.getElementsByClassName("modal-backdrop")[0];
+    overlay.remove();
+    var element = document.getElementsByTagName("body")[0];
+    element.classList.remove("modal-open");
+}
+</script>
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(newCompany) {window.location='#!/thank-you'}"></iframe>

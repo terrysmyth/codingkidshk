@@ -32,4 +32,84 @@
             </div>
         </div>
     </div>
+    <!-- SCHEDULE -->
+    <div class="scheduleWrapper">
+        <h2>Schedule</h2>
+        <div class="classKeyWrap">
+            <div class="keyWrap">
+                <div class="key"></div>Open Time
+            </div>
+            <div class="keyWrap">
+                <div class="key orange"></div>6-8yrs
+            </div>
+            <div class="keyWrap">
+                <div class="key green"></div>8-11yrs
+            </div>
+            <div class="keyWrap">
+                <div class="key blue"></div>11-16yrs
+            </div>
+        </div>
+        <div class="scheduleHolder">
+            <div class="fullDay">
+                <h4>Monday</h4>
+                <div class="classBox" ng-class="{'young': class.age == '6-8' , 'mid': class.age == '8-11',
+              'older': class.age == '11-16'} " ng-repeat="class in classes" ng-show="class.day == 'Monday'">
+                    <p>{{class.age}}yrs</p>
+                    <h3>{{class.name}}</h3>
+                    <h5>{{class.subtitle}}</h5>
+                    <p>{{class.time}}</p>
+                </div>
+            </div>
+            <div class="fullDay">
+                <h4>Tuesday</h4>
+                <div class="classBox" ng-class="{'young': class.age == '6-8' , 'mid': class.age == '8-11',
+              'older': class.age == '11-16'} " ng-repeat="class in classes" ng-show="class.day == 'Tuesday'">
+                    <p>{{class.age}}yrs</p>
+                    <h3>{{class.name}}</h3>
+                    <h5>{{class.subtitle}}</h5>
+                    <p>{{class.time}}</p>
+                </div>
+            </div>
+            <div class="fullDay">
+                <h4>Wednesday</h4>
+                <div class="classBox" ng-class="{'young': class.age == '6-8' , 'mid': class.age == '8-11',
+              'older': class.age == '11-16'} " ng-repeat="class in classes" ng-show="class.day == 'Wednesday'">
+                    <p>{{class.age}}yrs</p>
+                    <h3>{{class.name}}</h3>
+                    <h5>{{class.subtitle}}</h5>
+                    <p>{{class.time}}</p>
+                </div>
+            </div>
+            <div class="fullDay">
+                <h4>Friday</h4>
+                <div class="classBox" ng-class="{'young': class.age == '6-8' , 'mid': class.age == '8-11',
+              'older': class.age == '11-16'} " ng-repeat="class in classes" ng-show="class.day == 'Friday'">
+                    <p>{{class.age}}yrs</p>
+                    <h3>{{class.name}}</h3>
+                    <h5>{{class.subtitle}}</h5>
+                    <p>{{class.time}}</p>
+                </div>
+            </div>
+            <div class="fullDay">
+                <h4>Saturday</h4>
+                <div class="classBox" ng-class="{'young': class.age == '6-8' , 'mid': class.age == '8-11',
+              'older': class.age == '11-16'} " ng-repeat="class in classes" ng-show="class.day == 'Saturday'">
+                    <p>{{class.age}}yrs</p>
+                    <h3>{{class.name}}</h3>
+                    <h5>{{class.subtitle}}</h5>
+                    <p>{{class.time}}</p>
+                </div>
+            </div>
+            <div class="fullDay">
+                <h4>Sunday</h4>
+                <div class="classBox" ng-class="{'young': class.age == '6-8' , 'mid': class.age == '8-11',
+              'older': class.age == '11-16'} " ng-repeat="class in classes" ng-show="class.day == 'Sunday'">
+                    <p>{{class.age}}yrs</p>
+                    <h3>{{class.name}}</h3>
+                    <h5>{{class.subtitle}}</h5>
+                    <p>{{class.time}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -118,4 +118,17 @@
          getCamps.$bindTo($scope, "camps");
 
 
+         // GET CLASSES CHECKBOX
+         $scope.getClass = function() {
+            var checked =  [];
+            var chk_arry = document.getElementsByName('class');
+            for (var i = 0; i < chk_arry.length; i++) {
+                if (chk_arry[i].checked) {
+                    checked.push(chk_arry[i].value)
+                }
+            }
+            document.getElementById('allClasses').value = checked;
+         }
+
+
      })

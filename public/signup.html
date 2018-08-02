@@ -1,6 +1,6 @@
 <div class="hero small"></div>
 <div class="signupWrap container">
-	 <!-- CONTACT US -->
+    <!-- CONTACT US -->
     <div class="contactWrap columnCenter">
         <form class="contactForm columnCenter" action="https://docs.google.com/forms/u/2/d/e/1FAIpQLSdA8zMAvOMwemthRqBfc_zwy0XbCD2AQvN00areogI1MCqHFQ/formResponse" method="POST" id="mG61Hd" target="hidden_iframe1" onsubmit="newCompany1=true;">
             <h3>Sign up</h3>
@@ -12,16 +12,109 @@
             <label>Student/s Info</label>
             <input type="text" name="entry.1671584947" placeholder="Name/s" required>
             <input type="number" name="entry.357008028" placeholder="Age" required>
-            <select ng-model="className" required>
-            	<option ng-repeat="class in classes" value="{{class.name}}: {{class.day}}">{{class.name}}: {{class.day}}</option>
-            </select>
-            <input type="text" ng-model="className" name="entry.27307420" style="display: none;">
+            <!-- <select ng-model="className" required>
+                <option ng-repeat="class in classes" value="{{class.name}}: {{class.day}}">{{class.name}}: {{class.day}}</option>
+            </select> -->
+            <div class="classSelect">
+                <div class="classKeyWrap">
+                    <div class="classKey">
+                        <div class="classBoxKey yellow"></div>6-8yrs
+                    </div>
+                    <div class="classKey">
+                        <div class="classBoxKey green"></div>8-11yrs
+                    </div>
+                    <div class="classKey">
+                        <div class="classBoxKey blue"></div>11-16yrs
+                    </div>
+                </div>
+                <label>Classes</label>
+                <div class="classSelectWrapper">
+                    <!-- MONDAY -->
+                    <div class="dayWrap">
+                        <h4>Monday</h4>
+                        <div class="classHere" ng-repeat="class in classes" ng-show="class.day == 'Monday'" value="{{class.name}} : {{class.day}} : {{class.time}}" ng-class="{'yellow': class.age == '6-8' , 'green': class.age == '8-11',
+              'blue': class.age == '11-16'}">
+                            <p>{{class.age}}yrs</p>
+                            <h3>{{class.name}}
+                                    <input type="checkbox" name="class" value="{{class.name}} : {{class.day}} : {{class.time}}" ng-click="getClass()">
+                                </h3>
+                            <h4>{{class.subtitle}}</h4>
+                            <p>{{class.time}}</p>
+                        </div>
+                    </div>
+                    <!-- TUESDAY -->
+                    <div class="dayWrap">
+                        <h4>Tuesday</h4>
+                        <div class="classHere" ng-repeat="class in classes" ng-show="class.day == 'Tuesday'" value="{{class.name}} : {{class.day}} : {{class.time}}" ng-class="{'yellow': class.age == '6-8' , 'green': class.age == '8-11',
+              'blue': class.age == '11-16'}">
+                            <p>{{class.age}}yrs</p>
+                            <h3>{{class.name}}
+                                    <input type="checkbox" name="class" value="{{class.name}} : {{class.day}} : {{class.time}}" ng-click="getClass()">
+                                </h3>
+                            <h4>{{class.subtitle}}</h4>
+                            <p>{{class.time}}</p>
+                        </div>
+                    </div>
+                    <!-- WEDNESDAY -->
+                    <div class="dayWrap">
+                        <h4>Wednesday</h4>
+                        <div class="classHere" ng-repeat="class in classes" ng-show="class.day == 'Wednesday'" value="{{class.name}} : {{class.day}} : {{class.time}}" ng-class="{'yellow': class.age == '6-8' , 'green': class.age == '8-11',
+              'blue': class.age == '11-16'}">
+                            <p>{{class.age}}yrs</p>
+                            <h3>{{class.name}}
+                                    <input type="checkbox" name="class" value="{{class.name}} : {{class.day}} : {{class.time}}" ng-click="getClass()">
+                                </h3>
+                            <h4>{{class.subtitle}}</h4>
+                            <p>{{class.time}}</p>
+                        </div>
+                    </div>
+                    <!-- FRIDAY -->
+                    <div class="dayWrap">
+                        <h4>Friday</h4>
+                        <div class="classHere" ng-repeat="class in classes" ng-show="class.day == 'Friday'" value="{{class.name}} : {{class.day}} : {{class.time}}" ng-class="{'yellow': class.age == '6-8' , 'green': class.age == '8-11',
+              'blue': class.age == '11-16'}">
+                            <p>{{class.age}}yrs</p>
+                            <h3>{{class.name}}
+                                    <input type="checkbox" name="class" value="{{class.name}} : {{class.day}} : {{class.time}}" ng-click="getClass()">
+                                </h3>
+                            <h4>{{class.subtitle}}</h4>
+                            <p>{{class.time}}</p>
+                        </div>
+                    </div>
+                    <!-- SATURDAY -->
+                    <div class="dayWrap">
+                        <h4>Saturday</h4>
+                        <div class="classHere" ng-repeat="class in classes" ng-show="class.day == 'Saturday'" value="{{class.name}} : {{class.day}} : {{class.time}}" ng-class="{'yellow': class.age == '6-8' , 'green': class.age == '8-11',
+              'blue': class.age == '11-16'}">
+                            <p>{{class.age}}yrs</p>
+                            <h3>{{class.name}}
+                                    <input type="checkbox" name="class" value="{{class.name}} : {{class.day}} : {{class.time}}" ng-click="getClass()">
+                                </h3>
+                            <h4>{{class.subtitle}}</h4>
+                            <p>{{class.time}}</p>
+                        </div>
+                    </div>
+                    <!-- Sunday -->
+                    <div class="dayWrap">
+                        <h4>Sunday</h4>
+                        <div class="classHere" ng-repeat="class in classes" ng-show="class.day == 'Sunday'" value="{{class.name}} : {{class.day}} : {{class.time}}" ng-class="{'yellow': class.age == '6-8' , 'green': class.age == '8-11',
+              'blue': class.age == '11-16'}">
+                            <p>{{class.age}}yrs</p>
+                            <h3>{{class.name}}
+                                    <input type="checkbox" name="class" value="{{class.name}} : {{class.day}} : {{class.time}}" ng-click="getClass()">
+                                </h3>
+                            <h4>{{class.subtitle}}</h4>
+                            <p>{{class.time}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="text" ng-model="className" id="allClasses" name="entry.27307420" style="display: none;">
             <textarea name="entry.1644901907" placeholder="Medical or other notes:"></textarea>
             <input type="submit" name="" value="Register">
         </form>
     </div>
 </div>
-
 <script type="text/javascript">
 var newCompany1 = false;
 </script>

@@ -107,6 +107,9 @@ app.config(function($routeProvider) {
         .when("/camps", {
             templateUrl: "camps.html",
         })
+        .when("/teachers", {
+            templateUrl: "teachers.html",
+        })
         .otherwise({
             redirectTo: '/home'
         });

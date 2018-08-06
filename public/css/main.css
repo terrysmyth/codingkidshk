@@ -2097,6 +2097,44 @@ textarea:focus {
 }
 
 
+/* TEACHERS PAGE */
+
+.teachersWrap {
+    padding: 20px;
+}
+
+.teamWrap {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+}
+
+.teacher {
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-grow: 1;
+    max-width: 450px;
+    background-color: #f5f5f5;
+    padding: 15px;
+    margin: 5px;
+}
+
+.teacherImg {
+    height: 350px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-bottom: 5px #304d5b solid;
+}
+
+.teacher h3 {
+    font-size: 35px;
+    margin: 5px 0;
+}
+
 
 
 

@@ -22,7 +22,8 @@
                 <p ng-click="profilePage = 'p2'; currentQuestion = -1; answers = []; reset()">Quizes</p>
                 <p ng-click="profilePage = 'p6'">Material/Links</p>
                 <p ng-click="profilePage = 'p7'">Online Coding</p>
-                <p ng-click="profilePage = 'p3'">Free Videos</p>
+                <p ng-click="profilePage = 'p8'; defineButtons()">Gallery</p>
+                <p ng-click="profilePage = 'p3'">Feedback <span ng-repeat="item in profile.feedback" ng-show="item.seen == false">new!</span></p>
                 <p ng-click="logout()">Logout</p>
             </div>
             <div class="col-1"></div>
@@ -87,23 +88,16 @@
                 <div class="quizFilter">
                     <input id="op1" type="radio" name="quiz" value="all" ng-model="quizFilter">
                     <label class="filterLabel" for="op1">ALL</label>
-
                     <input id="op2" type="radio" name="quiz" value="HTML" ng-model="quizFilter">
                     <label class="filterLabel" for="op2">HTML</label>
-
                     <input id="op3" type="radio" name="quiz" value="CSS" ng-model="quizFilter">
                     <label class="filterLabel" for="op3">CSS</label>
-
                     <input id="op4" type="radio" name="quiz" value="JS" ng-model="quizFilter">
                     <label class="filterLabel" for="op4">JS</label>
-
                     <input id="op5" type="radio" name="quiz" value="JQ" ng-model="quizFilter">
                     <label class="filterLabel" for="op5">JQ</label>
-
                     <input id="op6" type="radio" name="quiz" value="Bootstrap" ng-model="quizFilter">
                     <label class="filterLabel" for="op6">Bootstrap</label>
-
-                  
                 </div>
                 <div class="profileQuizWrap" ng-show="profile.student" ng-init="takeQuiz = null">
                     <div class="quizWrap" ng-repeat="quiz in quizes" ng-click="$parent.takeQuiz = quiz; $parent.profilePage = 'p4'" ng-show="quiz.type == quizFilter || quizFilter == 'all'">
@@ -145,15 +139,60 @@
             </div>
             <!-- Videos -->
             <div ng-show="profilePage == 'p3'" class="profileBox p2 col-12 col-md-7">
-                <h3>Videos:</h3>
-                <div class="" ng-show="profile.student"></div>
+                <h3>Feedback:</h3>
+                <div class="feedbackWrap">
+                    <!-- LOOP FEEDBACK HERE -->
+                    <h4>Unread:</h4>
+                    <div class="feedback" ng-repeat="item in profile.feedback" ng-show="item.seen == false">
+                        <h4>{{item.date}}</h4>
+                        <p>{{item.body}}</p>
+                        <h5>by: {{item.teacher}}</h5>
+                        <button ng-click="seen(profile, item); item.seen = true" class="btn" ng-show="item.seen == false">Seen :)</button>
+                    </div>
+                    <hr>
+                    <h4>Read:</h4>
+                    <div class="feedback" ng-repeat="item in profile.feedback" ng-show="item.seen == true">
+                        <h4>{{item.date}}</h4>
+                        <p>{{item.body}}</p>
+                        <h5>by: {{item.teacher}}</h5>
+                        <button ng-click="seen(profile, item); item.seen = true" class="btn" ng-show="item.seen == false">Seen :)</button>
+                    </div>
+                </div>
                 <p ng-show="!profile.student">Sorry you havent been verified as a student yet. This material is not available until then. Thanks.</p>
-                <p>Coming Soon...</p>
             </div>
             <!-- QUIZ -->
             <div ng-show="profilePage == 'p4'" class="profileBox p2 col-12 col-md-7">
                 <h3>Quiz: {{takeQuiz.name}}</h3>
                 <showquiz></showquiz>
+            </div>
+            <!-- GALLERY -->
+            <div ng-show="profilePage == 'p8'" class="profileBox p2 col-12 col-md-7">
+                <h3 ng-init="uploadA = false">Gallery: Digital Art Uploads</h3>
+                <div class="uploadButton green" ng-show="uploadA==false" ng-click="uploadA = !uploadA">+</div>
+                <div class="uploadButton red" ng-show="uploadA==true" ng-click="uploadA = !uploadA">-</div>
+                <div class="uploadWrap" ng-class="{'active': uploadA}">
+                    <label class="upload-group">
+                        Choose File
+                        <input type="file" name="" id="fileUpload" ng-model="something">
+                    </label>
+                    <input maxlength="30" type="text" name="" ng-model="aboutImage.title" placeholder="Image title">
+                    <textarea ng-model="aboutImage.body" placeholder="About image" maxlength="120"></textarea>
+                    <img src="" id="preview">
+                    <h2 id='imageName'></h2>
+                    <button ng-show="aboutImage.body && aboutImage.title" type="button" class="saveWorkBtn" ng-click="upload(aboutImage); uploadA = !uploadA">Upload File</button>
+                </div>
+                <div class="profileGallery">
+                    <div class="itemWrap" ng-repeat="item in profile.gallery">
+                        <h3>{{item.title}}</h3>
+                        <div class="itemImage" style="background-image: url({{item.url}});"></div>
+                        <p>{{item.body}}</p>
+                        <div class="galleryFunctions">
+                            <button ng-click="deleteItem(item)">Delete</button>
+                            <button ng-show="item.publish == false" ng-click="publishItem(item)">Publish</button>
+                            <button ng-show="item.publish == true" ng-click="unpublishItem(item)">Unpublish</button>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- ANSWERS -->
             <div ng-show="profilePage == 'p5'" class="profileBox p5 col-12 col-md-7">

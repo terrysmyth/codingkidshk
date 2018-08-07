@@ -1,6 +1,11 @@
  "use strict";
 
  angular.module("myApp")
+     .filter('reverse', function() {
+         return function(items) {
+             return items.slice().reverse();
+         };
+     })
      .controller('mainCtrl', function($rootScope, $scope, $location, $firebaseObject, $window) {
 
          // DATE
@@ -120,15 +125,61 @@
 
          // GET CLASSES CHECKBOX
          $scope.getClass = function() {
-            var checked =  [];
-            var chk_arry = document.getElementsByName('class');
-            for (var i = 0; i < chk_arry.length; i++) {
-                if (chk_arry[i].checked) {
-                    checked.push(chk_arry[i].value)
-                }
-            }
-            document.getElementById('allClasses').value = checked;
+             var checked = [];
+             var chk_arry = document.getElementsByName('class');
+             for (var i = 0; i < chk_arry.length; i++) {
+                 if (chk_arry[i].checked) {
+                     checked.push(chk_arry[i].value)
+                 }
+             }
+             document.getElementById('allClasses').value = checked;
          }
+
+         $scope.newReview = [];
+
+         // NEW FEEDBACK
+         $scope.submitReview = function(student, review) {
+             // Add Review
+
+             var newPostKey = firebase.database().ref().child('users/' + student.key + "/feedback/").push().key;
+             var reviewDate = review.date;
+             var finalDate = reviewDate.getDay() + "/";
+             finalDate += reviewDate.getMonth() + "/";
+             finalDate += reviewDate.getFullYear();
+             console.log(finalDate)
+             try {
+                 firebase.database().ref('users/' + student.key + "/feedback/" + newPostKey).set({
+                     date: finalDate,
+                     body: review.body,
+                     teacher: review.teacher,
+                     seen: false,
+                     key: newPostKey
+                 });
+
+                 alertify.success('Success: updated');
+                 $scope.newReview = null;
+             } catch (err) {
+                 alertify.error('Error: ' + err);
+             }
+         }
+
+         // SEEN FUNCTION FOR REVIEWS
+         $scope.seen = function(student, review) {
+             firebase.database().ref('users/' + student.key + "/feedback/" + review.key).set({
+                 date: review.date,
+                 body: review.body,
+                 teacher: review.teacher,
+                 seen: true,
+                 key: review.key
+             });
+
+         }
+
+         // DISPLAY IMAGES
+         var ref = firebase.database().ref().child('published/')
+         var displayImages = $firebaseObject(ref);
+         displayImages.$bindTo($scope, "displayItems")
+
 
 
      })

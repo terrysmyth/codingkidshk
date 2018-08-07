@@ -57,6 +57,38 @@
                         <p ng-show="quiz.percent.percent <= 85" class="result">INCOMPLETE</p>
                     </div>
                 </div>
+                <div class="studentReviewWrap">
+                    <h4>Student Feedback</h4>
+                    <div class="addFeedback">
+                        <h5>New feedback +</h5>
+                        <textarea placeholder="Write feedback here!" ng-model="newReview.body"></textarea>
+                        <input type="date" name="" ng-model="newReview.date">
+                        <select ng-model="newReview.teacher">
+                            <option selected value="Terence W">Terence W</option>
+                            <option value="Joseph H">Joseph H</option>
+                        </select>
+                        <button class="submitBtn" ng-show="newReview.body && newReview.date && newReview.teacher" ng-click="submitReview(chosenStudent, newReview)">Submit Review</button>
+                    </div>
+                    <div class="feedbackWrap">
+                        <!-- LOOP FEEDBACK HERE -->
+                        <h3>Feedback</h3>
+                        <h4>Unread:</h4>
+                        <div class="feedback" ng-repeat="item in chosenStudent.feedback"ng-show="item.seen == false">
+                            <h4>{{item.date}}</h4>
+                            <p>{{item.body}}</p>
+                            <h5>by: {{item.teacher}}</h5>
+                            <button ng-click="seen(chosenStudent, item); item.seen = true" class="btn" ng-show="item.seen == false">Seen :)</button>
+                        </div>
+                        <hr>
+                        <h4>Read:</h4>
+                        <div class="feedback" ng-repeat="item in chosenStudent.feedback" ng-show="item.seen == true">
+                            <h4>{{item.date}}</h4>
+                            <p>{{item.body}}</p>
+                            <h5>by: {{item.teacher}}</h5>
+                            <button ng-click="seen(chosenStudent, item); item.seen = true" class="btn" ng-show="item.seen == false">Seen :)</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

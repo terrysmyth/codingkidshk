@@ -1,0 +1,13 @@
+<div class="hero small"></div>
+<div class="mainGalleryWrap">
+    <div class="sectionWrap">
+        <div class="sectionInner container">
+            <h3>Welcome to CodingKids Digital Art:</h3>
+        </div>
+        <div class="displayGallery">
+            <div class="displayItem" ng-repeat="item in displayItems" ng-if="item.publish==true">
+                <div class="displayImage" style="background-image: url({{item.url}});"></div>
+            </div>
+        </div>
+    </div>
+</div>

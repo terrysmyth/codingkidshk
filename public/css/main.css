@@ -90,6 +90,7 @@ h3 {
 
 
 
+
 /* FOOTER */
 
 footer {
@@ -114,6 +115,7 @@ footer {
 .footerTerms {
     color: #F46E30;
 }
+
 
 
 
@@ -227,6 +229,7 @@ nav a:hover img {
 
 
 
+
 /* HERO */
 
 .hero {
@@ -322,6 +325,7 @@ nav a:hover img {
 
 
 
+
 /* PROFILE PAGE */
 
 .profileForm {
@@ -388,6 +392,17 @@ nav a:hover img {
     transition-duration: 0.3s;
     cursor: pointer;
     color: #fff;
+    position: relative;
+}
+
+.profileNav span {
+    background-color: red;
+    padding: 10px 8px;
+    border-radius: 50%;
+    font-size: 12px;
+    color: #fff;
+    position: absolute;
+    top: -7px;
 }
 
 .profileNav p:hover {
@@ -518,6 +533,10 @@ nav a:hover img {
 }
 
 
+
+/* GALLERY */
+
+
 /* ONLINE EDUCATION */
 
 .onlineWrap {
@@ -616,11 +635,147 @@ nav a:hover img {
 }
 
 .btn1.delete {
-margin: 10px 5px;
+    margin: 10px 5px;
     background-color: red;
 }
 
+.profileGallery {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    margin: 20px 0;
+}
 
+.itemWrap {
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-grow: 1;
+    min-width: 150px;
+    background-color: #f5f5f5;
+    margin: 2px;
+    max-width: 250px;
+}
+
+.itemImage {
+    height: 150px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.itemWrap h3 {
+    color: #fff;
+    background-color: #304d5b;
+    margin: 0;
+    padding: 5px;
+    font-family: 'Abel';
+}
+
+.itemWrap p {
+    margin: 0;
+    padding: 5px;
+}
+
+.uploadButton {
+    background-color: green;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 4px;
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+
+.uploadButton.red {
+    background-color: red;
+}
+
+.uploadButton:hover {
+    transform: scale(1.1);
+}
+
+.uploadWrap {
+    background-color: #f5f5f5;
+    padding: 0px;
+    margin: 0px 0;
+    height: 0px;
+    overflow: hidden;
+    transition-duration: 0.3s;
+}
+
+.uploadWrap.active {
+    padding: 20px;
+    margin: 20px 0;
+    height: inherit;
+}
+
+.uploadWrap input {
+    width: 200px;
+    display: block;
+    margin: 10px 0;
+}
+
+.uploadWrap textarea {
+    width: 200px;
+    display: block;
+    max-width: 200px;
+    min-width: 200px;
+    height: 150px;
+    border: 1px rgba(0, 0, 0, 0.3) solid;
+}
+
+.galleryFunctions {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+}
+
+.galleryFunctions button {
+    background-color: green;
+    margin: 0;
+    color: #fff;
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-grow: 1;
+    cursor: pointer;
+}
+
+.galleryFunctions button:nth-child(1) {
+    background-color: red;
+  
+}
+
+
+.displayGallery {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+}
+
+.displayItem {
+    background-size: cover;
+    max-width: 430px;
+    min-width: 340px;
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-grow: 1;
+}
+
+.displayImage {
+    height: 30vw;
+    min-height: 250px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
 
 
 /* Quiz */
@@ -732,6 +887,7 @@ margin: 10px 5px;
 
 
 
+
 /* EDIT QUIZ */
 
 .editQuestion span {
@@ -805,6 +961,7 @@ margin: 10px 5px;
 .saveQuiz:hover {
     background-color: green;
 }
+
 
 
 
@@ -999,6 +1156,7 @@ margin: 10px 5px;
 }
 
 
+
 /* SCHEDULE */
 
 .scheduleFilter label {
@@ -1101,7 +1259,7 @@ margin: 10px 5px;
     max-width: 320px;
 }
 
-.fullDay h4{
+.fullDay h4 {
     background-color: #304d5b;
     color: #fff;
     padding: 5px;
@@ -1111,7 +1269,6 @@ margin: 10px 5px;
     margin: 5px;
     padding: 5px;
     background-color: red;
-
 }
 
 .classBox.young {
@@ -1171,12 +1328,15 @@ margin: 10px 5px;
 .key.orange {
     background-color: #F46002;
 }
+
 .key.green {
     background-color: #235d23;
 }
+
 .key.blue {
     background-color: #30305a;
 }
+
 
 
 
@@ -1266,6 +1426,7 @@ margin: 10px 5px;
     border-radius: 50px;
     color: #fff;
 }
+
 
 
 
@@ -1370,6 +1531,7 @@ margin: 10px 5px;
 .termWrap span {
     color: #F46002;
 }
+
 
 
 
@@ -1509,9 +1671,11 @@ textarea:focus {
 .classBoxKey.yellow {
     background-color: #ed6c33;
 }
+
 .classBoxKey.green {
     background-color: #205620;
 }
+
 .classBoxKey.blue {
     background-color: #373771;
 }
@@ -1610,6 +1774,7 @@ textarea:focus {
 
 
 
+
 /*Mailchimp*/
 
 #mc_embed_signup {
@@ -1643,6 +1808,7 @@ textarea:focus {
 
 
 
+
 /* THANK YOU */
 
 .thankYou {
@@ -1652,6 +1818,7 @@ textarea:focus {
     border-top: 4px #F46E30 solid;
     padding-top: 40px;
 }
+
 
 
 
@@ -1860,6 +2027,69 @@ textarea:focus {
     border-bottom: 1px rgba(0, 0, 0, 0.1) solid;
 }
 
+.addFeedback {
+    background-color: #f5f5f5;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.addFeedback textarea {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.addFeedback .submitBtn {
+    display: block;
+    width: 200px;
+}
+
+.feedback {
+    background-color: #f5f5f5;
+    padding: 10px;
+    margin: 5px 0;
+    position: relative;
+    padding-bottom: 20px;
+    margin-top: 45px;
+}
+
+.feedback h4 {
+    background-color: #304d5b;
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.feedback p {
+    background-color: #F46E30;
+    margin: 20px 0 0;
+    padding: 10px;
+    color: #fff;
+}
+
+.feedback h5 {
+    margin: 0;
+    padding: 5px 10px;
+    background-color: #304d5b;
+    display: inline;
+    color: #fff;
+}
+
+.feedback button {
+    background-color: red;
+    color: #fff;
+    padding: 5px 10px;
+    position: absolute;
+    bottom: -15px;
+    right: 10px;
+    border-radius: 50pc;
+}
+
+
 
 
 
@@ -1934,6 +2164,7 @@ textarea:focus {
 
 
 
+
 /* QUESTIONS */
 
 .question {
@@ -1961,6 +2192,7 @@ textarea:focus {
 
 
 
+
 /* CAMPS */
 
 .campsInnerWrapper {
@@ -1968,7 +2200,7 @@ textarea:focus {
     padding-bottom: 50px;
 }
 
-.campTimeInfo  {
+.campTimeInfo {
     padding: 20px;
     background-color: #f5f5f5;
     margin: 20px 10px;
@@ -1983,13 +2215,11 @@ textarea:focus {
     font-weight: 900;
 }
 
-.campsInfoWrapper {
-
-}
+.campsInfoWrapper {}
 
 .campWrap {
     position: relative;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     min-height: 300px;
     margin: 10px 0;
     background-color: #f5f5f5;
@@ -2021,7 +2251,7 @@ textarea:focus {
     border-bottom: 5px #F46E30 solid;
 }
 
-.campWrap .info > div {
+.campWrap .info>div {
     padding: 10px;
 }
 
@@ -2055,7 +2285,7 @@ textarea:focus {
 .campForm textarea {
     min-width: 300px;
     max-width: 400px;
-    border: 1px rgba(0,0,0,0.3) solid;
+    border: 1px rgba(0, 0, 0, 0.3) solid;
 }
 
 .campForm label {
@@ -2097,6 +2327,7 @@ textarea:focus {
 }
 
 
+
 /* TEACHERS PAGE */
 
 .teachersWrap {
@@ -2134,6 +2365,7 @@ textarea:focus {
     font-size: 35px;
     margin: 5px 0;
 }
+
 
 
 
@@ -2208,6 +2440,7 @@ textarea:focus {
 .loginBtn--google:focus {
     background: #E74B37;
 }
+
 
 
 /* ALERTIFY */

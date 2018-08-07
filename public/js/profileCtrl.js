@@ -214,56 +214,60 @@
              var newPostKey = firebase.database().ref().child('users/' + user.uid + "/gallery/").push().key;
              var storageRef = firebase.storage().ref();
 
-             try {
-                 // ANOTHER
+             if (getImage.files[0].size < 800000) {
+                 try {
+                     // ANOTHER
 
-                 var uploadTask = storageRef.child('gallery/' + user.uid + '/' + newPostKey + "/" + getImage.files[0].name).put(getImage.files[0]);
+                     var uploadTask = storageRef.child('gallery/' + user.uid + '/' + newPostKey + "/" + getImage.files[0].name).put(getImage.files[0]);
 
-                 // Register three observers:
-                 // 1. 'state_changed' observer, called any time the state changes
-                 // 2. Error observer, called on failure
-                 // 3. Completion observer, called on successful completion
-                 uploadTask.on('state_changed', function(snapshot) {
-                     // Observe state change events such as progress, pause, and resume
-                     // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-                     var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                     console.log('Upload is ' + progress + '% done');
-                     switch (snapshot.state) {
-                         case firebase.storage.TaskState.PAUSED: // or 'paused'
-                             console.log('Upload is paused');
-                             break;
-                         case firebase.storage.TaskState.RUNNING: // or 'running'
-                             console.log('Upload is running');
-                             break;
-                     }
-                 }, function(error) {
-                     // Handle unsuccessful uploads
-                 }, function() {
-                     // Handle successful uploads on complete
-                     // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-                     uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-                         console.log('File available at', downloadURL);
+                     // Register three observers:
+                     // 1. 'state_changed' observer, called any time the state changes
+                     // 2. Error observer, called on failure
+                     // 3. Completion observer, called on successful completion
+                     uploadTask.on('state_changed', function(snapshot) {
+                         // Observe state change events such as progress, pause, and resume
+                         // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+                         var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                         console.log('Upload is ' + progress + '% done');
+                         switch (snapshot.state) {
+                             case firebase.storage.TaskState.PAUSED: // or 'paused'
+                                 console.log('Upload is paused');
+                                 break;
+                             case firebase.storage.TaskState.RUNNING: // or 'running'
+                                 console.log('Upload is running');
+                                 break;
+                         }
+                     }, function(error) {
+                         // Handle unsuccessful uploads
+                     }, function() {
+                         // Handle successful uploads on complete
+                         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+                         uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                             console.log('File available at', downloadURL);
 
-                         firebase.database().ref('users/' + user.uid + "/gallery/" + newPostKey).set({
-                             name: getImage.files[0].name,
-                             body: aboutImage.body,
-                             title: aboutImage.title,
-                             url: downloadURL,
-                             publish: false,
-                             key: newPostKey
+                             firebase.database().ref('users/' + user.uid + "/gallery/" + newPostKey).set({
+                                 name: getImage.files[0].name,
+                                 body: aboutImage.body,
+                                 title: aboutImage.title,
+                                 url: downloadURL,
+                                 publish: false,
+                                 key: newPostKey
+                             });
                          });
+
+
                      });
+                     $scope.aboutImage = null;
+                     alertify.success('Saved: ' + aboutImage.title);
 
+                 } catch (err) {
 
-                 });
-                 $scope.aboutImage = null;
-                 alertify.success('Saved: ' + aboutImage.title);
+                     console.log(err)
+                     alertify.error('Failed to upload: change name or too large!');
 
-             } catch (err) {
-
-                 console.log(err)
-                 alertify.error('Failed to upload: change name or too large!');
-
+                 }
+             } else {
+                 alertify.error('File to large: ' + (getImage.files[0].size/1000) + "kb. Must be less then 800kb");
              }
 
 
@@ -295,7 +299,7 @@
 
 
          $scope.unpublishItem = function(item) {
-            try {
+             try {
                  firebase.database().ref().child('users/' + user.uid + "/gallery/" + item.key).set({
                      name: item.name,
                      body: item.body,
@@ -320,7 +324,7 @@
                  // Delete the file
                  storageRef.delete().then(function() {
                      firebase.database().ref('users/' + user.uid + "/gallery/" + item.key).remove();
-                     alertify.success('Image Delete Successfully');
+                     alertify.success('Image Deleted Successfully');
                  }).catch(function(error) {
                      alertify.error('Failed to delete image!');
                      console.log(error)

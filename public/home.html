@@ -35,13 +35,17 @@
             </div>
         </div>
     </div>
+    <!-- DIGITAL ART GALLERY -->
     <div class="sectionWrap">
         <div class="sectionInner container">
             <h3>Digital Art by students:</h3>
         </div>
         <div class="displayGallery">
             <div class="displayItem" ng-repeat="item in displayItems | limitTo:6" ng-if="item.publish==true">
-                <div class="displayImage" style="background-image: url({{item.url}});"></div>
+                <div class="displayImage" style="background-image: url({{item.url}});">
+                    <p>Title: {{item.title}}</p>
+                    <p style="display:none">{{item.key}}</p>
+                </div>
             </div>
         </div>
     </div>

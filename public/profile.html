@@ -188,7 +188,7 @@
                         <div class="itemImage" style="background-image: url({{item.url}});"></div>
                         <p>{{item.body}}</p>
                         <div class="galleryFunctions">
-                            <button ng-click="deleteItem(item)">Delete</button>
+                            <button ng-click="deleteItem(item)" ng-show="item.publish == false">Delete</button>
                             <button ng-show="item.publish == false" ng-click="publishItem(item)">Publish</button>
                             <button ng-show="item.publish == true" ng-click="unpublishItem(item)">Unpublish</button>
                         </div>

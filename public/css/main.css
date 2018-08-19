@@ -775,6 +775,17 @@ nav a:hover img {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    position: relative;
+}
+
+.displayImage p {
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    padding: 10px;
+    color: #fff;
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 0 20px 0 0;
 }
 
 

@@ -6,7 +6,7 @@
              return items.slice().reverse();
          };
      })
-     .controller('mainCtrl', function($rootScope, $scope, $location, $firebaseObject, $window) {
+     .controller('mainCtrl', function($rootScope, $scope, $location, $firebaseObject, $window, $firebaseArray) {
 
          // DATE
          $scope.date = new Date();
@@ -177,8 +177,13 @@
 
          // DISPLAY IMAGES
          var ref = firebase.database().ref().child('published/')
-         var displayImages = $firebaseObject(ref);
-         displayImages.$bindTo($scope, "displayItems")
+         var displayImages = $firebaseArray(ref);
+         $scope.displayItems = displayImages;
+
+          // GET WEBSITES
+         var getWebsites = firebase.database().ref('websites');
+         getWebsites = $firebaseObject(getWebsites);
+         getWebsites.$bindTo($scope, "websites");
 
 
 

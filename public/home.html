@@ -50,7 +50,7 @@
         </div>
     </div>
     <div class="sectionWrap s2">
-        <div ng-repeat="section in major" class="majorSection">
+        <div ng-repeat="section in major | limitTo: 6" class="majorSection">
             <div class="majorImg" style="background-image:url({{section.img}})"></div>
             <div class="majorInfo">
                 <h3>{{section.header}}</h3>

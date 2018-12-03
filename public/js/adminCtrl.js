@@ -182,6 +182,94 @@
          getCamps.$bindTo($scope, "camps");
 
 
+         // UPLOAD
+
+         $scope.upload = function(aboutImage) {
+             var getImage = document.getElementById("fileUpload");
+             var file;
+
+             // Create a storage reference from our storage service
+             var newPostKey = firebase.database().ref().child('websites/').push().key;
+             var storageRef = firebase.storage().ref();
+
+             if (getImage.files[0].size < 800000) {
+                 try {
+                     // ANOTHER
+
+                     var uploadTask = storageRef.child('websites/'+ newPostKey).put(getImage.files[0]);
+
+                     // Register three observers:
+                     // 1. 'state_changed' observer, called any time the state changes
+                     // 2. Error observer, called on failure
+                     // 3. Completion observer, called on successful completion
+                     uploadTask.on('state_changed', function(snapshot) {
+                         // Observe state change events such as progress, pause, and resume
+                         // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+                         var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                         console.log('Upload is ' + progress + '% done');
+                         switch (snapshot.state) {
+                             case firebase.storage.TaskState.PAUSED: // or 'paused'
+                                 console.log('Upload is paused');
+                                 break;
+                             case firebase.storage.TaskState.RUNNING: // or 'running'
+                                 console.log('Upload is running');
+                                 break;
+                         }
+                     }, function(error) {
+                         // Handle unsuccessful uploads
+                     }, function() {
+                         // Handle successful uploads on complete
+                         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+                         uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                             console.log('File available at', downloadURL);
+
+                             firebase.database().ref('websites/' + newPostKey).set({
+                                 name: getImage.files[0].name,
+                                 title: aboutImage.title,
+                                 subtitle: aboutImage.subtitle,
+                                 author: aboutImage.author,
+                                 url: downloadURL,
+                                 key: newPostKey,
+                                 link: aboutImage.link
+                             });
+                         });
 
 
-     })
+                     });
+                     $scope.websitie = null;
+                     alertify.success('Saved: ' + aboutImage.title);
+
+                 } catch (err) {
+
+                     console.log(err)
+                     alertify.error('Failed to upload: change name or too large!');
+
+                 }
+             } else {
+                 alertify.error('File to large: ' + (getImage.files[0].size/1000) + "kb. Must be less then 800kb");
+             }
+         }
+
+         $scope.deleteWebsite = function(website) {
+            var storageRef = firebase.storage().ref().child("websites/" + website.key)
+             alertify.confirm("Are you sure you want to delete this image?.", function() {
+                 // Delete the file
+                 storageRef.delete().then(function() {
+                     firebase.database().ref("websites/" + website.key).remove();
+                     alertify.success('Image Deleted Successfully');
+                 }).catch(function(error) {
+                     alertify.error('Failed to delete image!');
+                     console.log(error)
+                 });
+
+             }, function() {});
+
+
+         }
+
+
+
+
+
+
+     }) //END

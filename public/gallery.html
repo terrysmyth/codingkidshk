@@ -7,6 +7,10 @@
         <div class="displayGallery">
             <div class="displayItem" ng-repeat="item in displayItems" ng-if="item.publish==true">
                 <div class="displayImage" style="background-image: url({{item.url}});"></div>
+                <div class="displayInfo">
+                    <h3>{{item.title}}</h3>
+                    <p>{{item.body}}</p>
+                </div>
             </div>
         </div>
     </div>

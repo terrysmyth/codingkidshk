@@ -229,6 +229,45 @@
                     </div>
                 </div>
             </div>
+            <!-- ADD COMPANY/WEBSITE-->
+            <div class="boxWrap col-12 col-md-6">
+                <div class="dashbox d2">
+                    <h3>Add Website</h3>
+                    <label>
+                        <em>Title:</em>
+                        <input type="text" name="" ng-model="websitie.title" placeholder="Title">
+                    </label>
+
+                    <label>
+                        <em>Subtitle: </em>
+                        <input type="text" name="" ng-model="websitie.subtitle" placeholder="Subtitle">
+                    </label>
+
+                    <label>
+                        <em>Author: </em>
+                        <input type="text" name="" ng-model="websitie.author" placeholder="Author" >
+                    </label>
+
+                    <label>
+                        <em>Link: </em>
+                        <input type="text" name="" ng-model="websitie.link" placeholder="http://www...">
+                    </label>
+
+                    <label>
+                        <em>Image (choose file): </em>
+                        <input type="file" name="" id="fileUpload" ng-model="something">
+                    </label>
+
+                    <button class="submitBtn" ng-click="upload(websitie)" ng-show="websitie.title && websitie.subtitle && websitie.author && websitie.link">Create</button>
+                    <div class="adminWebList">
+                        <div class="adminWeb" ng-repeat="website in websites">
+                            <h5>{{website.title}}</h5>
+                            <p ng-click="deleteWebsite(website)">delete</p>
+                            <div class="adminWebImg" style="background-image: url({{website.url}});"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 </div>

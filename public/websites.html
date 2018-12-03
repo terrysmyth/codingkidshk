@@ -1,0 +1,15 @@
+<div class="hero small"></div>
+<div class="websitesWrap container">
+	<h2>CodingKids Websites</h2>
+	<h3>Sites by coding kids.</h3>
+	<p>Here at CodingKids we like to encourage creative and entrepreneurial thought. To help in the process of learning HTML, CSS, and JavaScript the kids are allowed to choose their projects, which, upon completion are published online. Enjoy!</p>
+	<div class="websitesList">
+		<div class="website" ng-repeat="website in websites" style="background-image: url({{website.url}});">
+			<div class="websiteInfo">
+				<h4>{{website.title}}</h4>
+				<h5>By: {{website.author}}</h5>
+			</div>
+			<a href="{{website.link}}" target="_blank">Visit</a>
+		</div>
+	</div>
+</div>

@@ -65,6 +65,9 @@ app.config(function($routeProvider) {
         .when("/admin", {
             templateUrl: "admin.html",
         })
+        .when("/videopage", {
+            templateUrl: "videopage.html",
+        })
         .when("/studentPage", {
             templateUrl: "studentPage.html",
         })
@@ -112,6 +115,9 @@ app.config(function($routeProvider) {
         })
         .when("/gallery", {
             templateUrl: "gallery.html",
+        })
+        .when("/websites", {
+            templateUrl: "websites.html",
         })
         .otherwise({
             redirectTo: '/home'

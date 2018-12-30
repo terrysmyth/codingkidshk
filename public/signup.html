@@ -68,6 +68,19 @@
                             <p>{{class.time}}</p>
                         </div>
                     </div>
+                    <!-- THURSDAY -->
+                    <div class="dayWrap">
+                        <h4>Thursday</h4>
+                        <div class="classHere" ng-repeat="class in classes" ng-show="class.day == 'Thursday'" value="{{class.name}} : {{class.day}} : {{class.time}}" ng-class="{'yellow': class.age == '6-8' , 'green': class.age == '8-11',
+              'blue': class.age == '11-16'}">
+                            <p>{{class.age}}yrs</p>
+                            <h3>{{class.name}}
+                                    <input type="checkbox" name="class" value="{{class.name}} : {{class.day}} : {{class.time}}" ng-click="getClass()">
+                                </h3>
+                            <h4>{{class.subtitle}}</h4>
+                            <p>{{class.time}}</p>
+                        </div>
+                    </div>
                     <!-- FRIDAY -->
                     <div class="dayWrap">
                         <h4>Friday</h4>

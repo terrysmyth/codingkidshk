@@ -81,6 +81,16 @@
                 </div>
             </div>
             <div class="fullDay">
+                <h4>Thursday</h4>
+                <div class="classBox" ng-class="{'young': class.age == '6-8' , 'mid': class.age == '8-11',
+              'older': class.age == '11-16'} " ng-repeat="class in classes" ng-show="class.day == 'Thursday'">
+                    <p>{{class.age}}yrs</p>
+                    <h3>{{class.name}}</h3>
+                    <h5>{{class.subtitle}}</h5>
+                    <p>{{class.time}}</p>
+                </div>
+            </div>
+            <div class="fullDay">
                 <h4>Friday</h4>
                 <div class="classBox" ng-class="{'young': class.age == '6-8' , 'mid': class.age == '8-11',
               'older': class.age == '11-16'} " ng-repeat="class in classes" ng-show="class.day == 'Friday'">

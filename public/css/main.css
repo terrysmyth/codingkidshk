@@ -74,6 +74,7 @@ h3 {
 
 .btn1:hover {
     font-size: 22px;
+    color: #fff;
 }
 
 
@@ -285,6 +286,16 @@ nav a:hover img {
     background-image: url(/images/bck1.jpg);
     position: relative;
 }
+
+.hero.large {
+    height: inherit;
+    min-height: 500px;
+    max-height: inherit;
+    background-image: url(/images/bck1.jpg);
+    position: relative;
+    padding-top: 100px;
+}
+
 
 .hero p {
     margin-top: 40px;
@@ -1810,10 +1821,73 @@ textarea:focus {
 
 
 
+/* ANNOUNCEMENT */
 
+.announceWrap {
+    padding: 15px;
+    max-width: 1000px;
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+    -ms-justify-content: space-around;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+}
 
+.announce {
+    width: 40%;
+    min-height: 300px;
+    min-width: 350px;
+    margin: 50px 10px;
+    border-radius: 10px;
+    border: 2px #fff solid;
+}
 
+.announce.light {
+    background-color: #fff;
+    color: #585858;
+}
 
+.announce.light h2,
+.announce.light p,
+.announce.light span,
+.announce.light h3 {
+    color: #585858;
+}
+
+.announce p {
+    text-align: justify;
+}
+
+.announce span {
+    font-weight: 900;
+    border-left: 2px #F46E30 solid;
+    font-size: 22px;
+    padding-left: 5px;
+}
+
+.annInfo {
+    padding: 15px 20px;
+}
+
+.annInfo table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.announce td, .announce th {
+  border: 1px solid #fff;
+  text-align: left;
+  padding: 8px;
+}
+
+.announce.light td, .announce.light th {
+    border: 1px solid #585858;
+    color: #585858;
+}
 
 
 
@@ -1839,6 +1913,7 @@ textarea:focus {
     color: #fff;
     font-size: 22px;
 }
+
 
 
 

@@ -119,6 +119,9 @@ app.config(function($routeProvider) {
         .when("/websites", {
             templateUrl: "websites.html",
         })
+        .when("/announcement", {
+            templateUrl: "announcement.html",
+        })
         .otherwise({
             redirectTo: '/home'
         });

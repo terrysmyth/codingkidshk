@@ -237,9 +237,9 @@ nav a:hover img {
     height: 70vh;
     min-height: 350px;
     max-height: 550px;
-    background-position: center;
+    background-position: center top;
     background-size: cover;
-    background-image: url(/images/bck1.jpg);
+    background-image: url(/images/joeArt.png);
     display: flex;
     -webkit-display: flex;
     justify-content: center;
